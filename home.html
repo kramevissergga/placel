@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>HomePage</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?_v=20241104215534" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20241104215534">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<a href="#" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" class="ibg ibg--contain">
+				</a>
+				<a href="#" class="header__cart _icon-cart">
+					<span>3</span>
+				</a>
+
+				<div class="header__search">
+					<button data-search-close class="header__search-close _icon-cross-thin"></button>
+					<div class="header__search-field search-field-header">
+						<input type="text" placeholder="Search site" class="search-field-header__input">
+						<button class="search-field-header__button _icon-search-circle"></button>
+					</div>
+				</div>
+				<div class="header__actions">
+					<div data-da=".mobile-menu, 599.98, 1" class="header__lang lang-header">
+						<div class="lang-header__wrapper">
+							<div hidden class="lang-header__options">
+								<a href="#" class="lang-header__option">
+									<img src="img/flags/uk.svg" alt="Flag" class="ibg">
+								</a>
+								<a href="#" class="lang-header__option">
+									<img src="img/flags/germany.svg" alt="Flag" class="ibg">
+								</a>
+							</div>
+						</div>
+						<div class="lang-header__body _icon-ch-right">
+							<div class="lang-header__label">language</div>
+							<div class="lang-header__image">
+								<img src="img/flags/uk.svg" alt="Flag" class="ibg">
+							</div>
+						</div>
+					</div>
+					<button data-search-open class="header__search-button _icon-search-circle">
+					</button>
+					<button data-menu-open class="icon-menu">
+						<span></span>
+					</button>
+				</div>
+				<div class="mobile-menu">
+					<div class="mobile-menu__header">
+						<div class="mobile-menu__logo">
+							<img src="img/logo-white.svg" alt="Logo" class="ibg ibg--contain">
+						</div>
+						<button data-menu-close class="mobile-menu__close _icon-cross-thin"></button>
+					</div>
+					<div data-simplebar data-simplebar-media="599.98" class="mobile-menu__body">
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Company
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">About Us</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Our Values
+									</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Advantages</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">News & Events</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Quality
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Quality Assurance</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">ESG
+									</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Sustainability</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Capabilities
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Technologies</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Engineering</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Services
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Smart Packaging</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Custom Solutions</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Contact, Locations & Distributors
+							</h4>
+							<div class="mobile-menu__social social">
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#in"></use>
+									</svg>
+								</a>
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#fb"></use>
+									</svg>
+								</a>
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#yt"></use>
+									</svg>
+								</a>
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#x"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="popup-video" aria-hidden="true" class="popup popup--yt">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<div class="yt-popup">
+						<div class="yt-popup__header">
+							<h3 class="yt-popup__title">
+								Plasel Plastic Ltd.
+							</h3>
+							<button data-close type="button" class="yt-popup__close _icon-cross-thin text-link"></button>
+						</div>
+						<div data-popup-youtube-place class="yt-popup__video">
+
+						</div>
+						<div class="yt-popup__subtext">
+							A glance to Plasel Plastic Ltd
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main class="page">
+			<section class="page__hero hero">
+				<div class="hero__container">
+					<div class="hero__slider-wrapper">
+						<img data-da=".hero__body, 991.98" src="img/home/hero/label.svg" alt="Image" class="hero__label-image">
+						<div class="hero__slider splide">
+							<div class="splide__track">
+								<ul class="splide__list">
+									<li class="splide__slide">
+										<img src="img/home/hero/01.webp" alt="Image" class="ibg ibg--contain">
+									</li>
+									<li class="splide__slide">
+										<img src="img/home/hero/02.webp" alt="Image" class="ibg ibg--contain">
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="hero__body">
+						<h1 class="hero__title">
+							Simple, Smart & Sustainable<br>
+							<span>Plastic Solutions</span>
+						</h1>
+						<div class="hero__text text">
+							<p>
+								Seeking a smarter plastic manufacturing solution?
+								Plasel Plastic has the technological capacity backed by
+								innovative ideas and world-call logistics to drive
+								your product forward
+							</p>
+						</div>
+						<a href="#" class="hero__link button">Request Proposal</a>
+					</div>
+				</div>
+			</section>
+			<div class="page__video video-section">
+				<div class="video-section__container">
+					<div class="video-section__text text">
+						<p>
+							Whether you are crafting a new product or are seeking a smarter manufacturing solution foran existing one,
+							Plasel Plastic has the technological know-how,
+							backed by innovative ideas, world-class global service
+							and logistics to drive your project forward.
+						</p>
+					</div>
+					<div class="video-section__placeholder">
+						<div class="video-section__video">
+							<img src="img/home/video/video.webp" alt="Image" class="video-section__image">
+							<!-- Щоб відео відкрилось прямо в цьому блоці, а не в попапі - прибрати "data-popup="#yt-popup"" і додати "data-yt"-->
+							<button data-yt data-popup="#popup-video" data-popup-youtube="golsjsSLnVc" type="button" class="video-section__play-btn">
+								<svg>
+									<use xlink:href="img/icons.svg#play"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+					<a href="#" class="video-section__link button button--blue">
+						Search our Catalog
+					</a>
+				</div>
+			</div>
+			<section class="page__services services-section">
+				<div class="services-section__container">
+					<h2 class="services-section__title section-title">
+						Our Services
+					</h2>
+					<div class="services-section__items">
+						<a style="--bg-color: #219CBB" href="#" class="services-section__item item-services">
+							<img src="img/home/services/01.webp" alt="Image" class="item-services__image">
+							<h3 class="item-services__title">Smart Packaging</h3>
+							<ul class="item-services__list">
+								<li class="item-services__item">
+									Leading innovative packaging for cutting tool industries
+
+								</li>
+								<li class="item-services__item">
+									Building a global brand in plastic packaging
+								</li>
+								<li class="item-services__item">
+									Unrivaled flexible and professional services
+								</li>
+								<li class="item-services__item">
+									World-class logistics across the globe
+								</li>
+								<li class="item-services__item">
+									Strict manufacturing compliance
+								</li>
+							</ul>
+							<div class="item-services__label">Learn more >>></div>
+						</a>
+						<a style="--bg-color: #dd3d3d" href="#" class="services-section__item item-services">
+							<img src="img/home/services/02.webp" alt="Image" class="item-services__image">
+							<h3 class="item-services__title">Custom
+								Solutions</h3>
+							<ul class="item-services__list">
+								<li class="item-services__item">
+									Merging technology with innovation
+								</li>
+								<li class="item-services__item">
+									Injection molding
+								</li>
+								<li class="item-services__item">
+									Blow molding
+								</li>
+								<li class="item-services__item">
+									Complementary services
+								</li>
+							</ul>
+							<div class="item-services__label">Learn more >>></div>
+						</a>
+					</div>
+				</div>
+			</section>
+			<section class="page__locations locations-section">
+				<h2 class="locations-section__title section-title">
+					Locations & Distributors
+				</h2>
+				<div class="locations-section__map">
+					<div id="map"></div>
+				</div>
+			</section>
+			<section class="page__news-section news-section">
+				<div class="news-section__container">
+					<h2 class="news-section__title section-title">Latest News & Events</h2>
+					<div class="news-section__items">
+						<article class="news-section__item item-news">
+							<div class="item-news__header">
+								<a href="#" class="item-news__tag">News</a>
+								<div class="item-news__date">12.8.24</div>
+							</div>
+							<div class="item-news__body">
+								<h3 class="item-news__title">
+									<a href="#" class="item-news__link text-link">
+										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
+									</a>
+								</h3>
+								<p class="item-news__text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua...
+								</p>
+							</div>
+							<a href="#" class="item-news__image-link">
+								<img src="img/home/news/01.webp" alt="Image" class="ibg">
+							</a>
+						</article>
+						<article class="news-section__item item-news">
+							<div class="item-news__header">
+								<a href="#" style="background-color: #219CBB;" class="item-news__tag">Event</a>
+								<div class="item-news__date">12.8.24</div>
+							</div>
+							<div class="item-news__body">
+								<h3 class="item-news__title">
+									<a href="#" class="item-news__link text-link">
+										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
+									</a>
+								</h3>
+								<p class="item-news__text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua...
+								</p>
+							</div>
+							<a href="#" class="item-news__image-link">
+								<img src="img/home/news/02.webp" alt="Image" class="ibg">
+							</a>
+						</article>
+						<article class="news-section__item item-news">
+							<div class="item-news__header">
+								<a style="background-color: #76926D;" href="#" class="item-news__tag">Case Study</a>
+								<div class="item-news__date">12.8.24</div>
+							</div>
+							<div class="item-news__body">
+								<h3 class="item-news__title">
+									<a href="#" class="item-news__link text-link">
+										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
+									</a>
+								</h3>
+								<p class="item-news__text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua...
+								</p>
+							</div>
+							<a href="#" class="item-news__image-link">
+								<img src="img/home/news/03.webp" alt="Image" class="ibg">
+							</a>
+						</article>
+						<article class="news-section__item item-news">
+							<div class="item-news__header">
+								<a href="#" class="item-news__tag">News</a>
+								<div class="item-news__date">12.8.24</div>
+							</div>
+							<div class="item-news__body">
+								<h3 class="item-news__title">
+									<a href="#" class="item-news__link text-link">
+										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
+									</a>
+								</h3>
+								<p class="item-news__text">
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+									dolore magna aliqua...
+								</p>
+							</div>
+							<a href="#" class="item-news__image-link">
+								<img src="img/home/news/04.webp" alt="Image" class="ibg">
+							</a>
+						</article>
+					</div>
+					<a href="#" class="news-section__link button">Visit News & events</a>
+				</div>
+			</section>
+		</main>
+		<section class="page__contacts-section contacts-section">
+			<div class="contacts-section__container">
+				<h2 class="contacts-section__title section-title">Contact Us</h2>
+				<form action="#" method="post" enctype="multipart/form-data" class="contacts-section__form">
+					<div class="contacts-section__label">
+						Select periphery to send the inquiry to:
+						<select name="form[]" data-scroll data-class-modif="border">
+							<option value="1" selected>Israel - General Headquarters</option>
+							<option value="2">Afghanistan</option>
+							<option value="3">Albania</option>
+							<option value="4">Andorra</option>
+							<option value="5">Angola</option>
+							<option value="6">Antigua & Deps</option>
+							<option value="7">Armenia</option>
+							<option value="8">Australia</option>
+							<option value="9">Azerbaijan</option>
+							<option value="10">Bahamas</option>
+							<option value="11">Bahrain</option>
+							<option value="12">Bangladesh</option>
+						</select>
+					</div>
+					<div class="contacts-section__items">
+						<div class="contacts-section__field field">
+							<div class="field__label">
+								Name<span>*</span>
+							</div>
+							<input type="text" name="name" placeholder="Name" class="field__input">
+						</div>
+						<div class="contacts-section__field field">
+							<div class="field__label">
+								Company<span>*</span>
+							</div>
+							<input type="text" name="company" placeholder="Company" class="field__input">
+						</div>
+						<div class="contacts-section__field field">
+							<div class="field__label">
+								Position<span>*</span>
+							</div>
+							<input type="text" name="position" placeholder="position" class="field__input">
+						</div>
+						<div class="contacts-section__field field">
+							<div class="field__label">
+								Phone<span>*</span>
+							</div>
+							<input type="text" placeholder="phone" name="phone" class="field__input">
+						</div>
+						<div class="contacts-section__field field">
+							<div class="field__label">
+								Email<span>*</span>
+							</div>
+							<input type="email" name="email" placeholder="Company" class="field__input">
+						</div>
+						<select name="form[]" data-scroll="" data-class-modif="form">
+							<option value="" selected>Country:<span>*</span></option>
+							<option value="1">Israel</option>
+							<option value="2">Afghanistan</option>
+							<option value="3">Albania</option>
+							<option value="4">Andorra</option>
+							<option value="5">Angola</option>
+							<option value="6">Antigua & Deps</option>
+							<option value="7">Armenia</option>
+							<option value="8">Australia</option>
+							<option value="9">Azerbaijan</option>
+							<option value="10">Bahamas</option>
+							<option value="11">Bahrain</option>
+							<option value="12">Bangladesh</option>
+						</select>
+						<div class="contacts-section__field contacts-section__field--full field">
+							<div class="field__label">
+								Message
+							</div>
+							<textarea name="message" placeholder="message" class="field__textarea"></textarea>
+						</div>
+					</div>
+					<div class="contacts-section__label-mobile">
+						<span>*</span>Mandatory field
+					</div>
+					<button class="contacts-section__button button">
+						Send Inquiry
+					</button>
+				</form>
+				<div class="contacts-section__decor decor-contacts">
+					<div class="decor-contacts__image">
+						<img src="img/contacts/01.webp" alt="Image" class="ibg">
+					</div>
+					<div class="decor-contacts__shape">
+						<svg xmlns="http://www.w3.org/2000/svg" width="273" height="245" viewBox="0 0 273 245" fill="none">
+							<path d="M15.8483 108.139C15.8483 174.966 70.0218 229.139 136.848 229.139C203.675 229.139 257.848 174.966 257.848 108.139" stroke="#455a64" stroke-width="30" />
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class="footer">
+			<div class="footer__wrapper">
+				<div class="footer__container">
+					<!--Зробити дівом якщо посилання не додали-->
+					<a href="#" class="footer__label-image">
+						<img src="img/footer/ecovadis.webp" alt="Image" class="ibg ibg--contain">
+					</a>
+					<div class="footer__body">
+						<a href="#" data-da=".footer__adresses, 767.98, 1" class="footer__logo">
+							<img src="img/logo-white.svg" alt="Logo" class="ibg ibg--contain">
+						</a>
+						<div class="footer__menu">
+							<div class="footer__block">
+								<h4 class="footer__title">Company</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											About Us
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Our Values
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Advantages
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											News & Events
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Quality</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Quality Assurance
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											ESG
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Sustainability
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Capabilities</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Technologies
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Engineering
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Services</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Smart Packaging
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Custom Solution
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Contacts, Locations & Distributors</h4>
+							</div>
+						</div>
+					</div>
+					<div class="footer__content">
+						<div class="footer__adresses">
+							<div class="footer__adress-block">
+								<div class="footer__address-item">
+									<a href="tel:97249089820" class="footer__link text-link">+972-4-908-9820
+									</a>
+								</div>
+								<div class="footer__address-item">
+									<a href="mailto:info@plasel.com" class="footer__link text-link">info@plasel.com
+									</a>
+								</div>
+								<div class="footer__address-item">
+									<a href="#" class="footer__link text-link">Lavon Industrial Park</a>
+								</div>
+							</div>
+							<div class="footer__adress-block footer__adress-block--grow">
+								<div class="footer__address-item">
+									General:
+									<a href="mailto:orders@plasel.com" class="footer__link text-link">orders@plasel.com
+									</a>
+								</div>
+								<div class="footer__address-item">
+									Job Applications:
+									<a href="mailto:plasel-jobs@plasel.com" class="footer__link text-link">plasel-jobs@plasel.com
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="footer__col footer__col--social">
+							<div class="footer__row">
+								<div data-da=".footer__col--social, 767.98, first" class="footer__social social-footer">
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										Facebook
+									</a>
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										X (twitter)
+									</a>
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										LinkedIn
+									</a>
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										Youtube
+									</a>
+								</div>
+								<div class="footer__terms">
+									<a href="#" target="_blank" class="footer__terms-link text-link">
+										Terms of Use
+									</a>
+									<a href="#" target="_blank" class="footer__terms-link text-link">
+										Privacy Policy
+									</a>
+								</div>
+							</div>
+							<button data-go-back data-da=".footer__row, 767.98, first" class="footer__up _icon-arrow-up">back to
+								top</button>
+						</div>
+					</div>
+					<div class="footer__copy">
+						All Rights Reserves to Plasel Inc. 2024©
+					</div>
+				</div>
+			</div>
+			<div data-count="18" class="footer__decor">
+				<div class="footer__decor-item"></div>
+			</div>
+		</footer>
+	</div>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClqFtYyV6tblkFr8PUcCrUMTyVRN8byu8&_v=20240719151454" async defer></script>
+	<script src="js/app.min.js?_v=20241104215534"></script>
+</body>
+
+</html>
