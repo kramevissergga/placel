@@ -292,7 +292,8 @@ h6 {
   cursor: pointer;
   padding: .625rem .3125rem;
   border-radius: 1.25rem;
-  color: inherit
+  color: inherit;
+  font-size: 1rem
 }
 .select__row {
   display: inline-flex;
@@ -2411,7 +2412,7 @@ body::after {
     background-color: #219cbb;
     margin-left: -1.25rem;
     margin-right: -1.25rem;
-    padding: 1.625rem 1.25rem 2.8125rem 1.25rem
+    padding: 1.625rem 1.25rem 3.4375rem 1.25rem
   }
   .hero__title:not(:last-child) {
     margin-bottom: .3125rem
@@ -2483,6 +2484,9 @@ body::after {
   .select__title {
     font-size: .875rem;
     background-color: #fff
+  }
+  .select__option {
+    font-size: .875rem
   }
   .yt-popup__title {
     font-size: 1.5rem
