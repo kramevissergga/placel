@@ -12288,7 +12288,27 @@
             gestureHandling: true
         });
         var markers = [ {
-            coords: [ 51.1657, 10.4515 ],
+            coords: [ 53.41988920082695, 22.962430526782214 ],
+            color: "#dd3d3d",
+            text: "Poland",
+            popupContent: `\n        <h4>Europe Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">Poland</span><br>\n        Plasel Poland <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+        }, {
+            coords: [ 35.9078, 127.7669 ],
+            color: "#dd3d3d",
+            text: "S. Korea",
+            popupContent: `\n        <h4>Asia Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">S. Korea</span><br>\n        Plasel South Korea <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+        }, {
+            coords: [ 37.7749, -122.4194 ],
+            color: "#dd3d3d",
+            text: "US West<br>Coast",
+            popupContent: `\n        <h4>US West Coast Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">US West Coast</span><br>\n        Plasel USA West Coast <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+        }, {
+            coords: [ 39.8283, -98.5795 ],
+            color: "#dd3d3d",
+            text: "US, Canada<br>& Mexico",
+            popupContent: `\n        <h4>North America Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">US, Canada & Mexico</span><br>\n        Plasel North America <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+        }, {
+            coords: [ 49.69308947170579, 9.64700094662242 ],
             color: "#dd3d3d",
             text: "Germany",
             popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
@@ -12366,6 +12386,12 @@
             styles: [ {
                 featureType: "administrative",
                 elementType: "labels",
+                stylers: [ {
+                    visibility: "off"
+                } ]
+            }, {
+                featureType: "administrative",
+                elementType: "geometry",
                 stylers: [ {
                     visibility: "off"
                 } ]
