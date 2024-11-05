@@ -12207,6 +12207,8 @@
         __webpack_require__(481);
         __webpack_require__(769);
         var leaflet_gesture_handling_min = __webpack_require__(882);
+        var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+        isSafari ? document.documentElement.classList.add("safari") : null;
         const langHeaders = document.querySelectorAll(".lang-header");
         langHeaders.forEach((langHeader => {
             const langHeaderBody = langHeader.querySelector(".lang-header__body");
