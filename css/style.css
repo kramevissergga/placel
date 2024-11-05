@@ -1393,7 +1393,6 @@ body::after {
 }
 .news-section__items {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(20.625rem,1fr));
   grid-template-columns: repeat(4,1fr);
   -webkit-column-gap: 1.9375rem;
   -moz-column-gap: 1.9375rem;
@@ -2639,9 +2638,6 @@ body::after {
   .item-services__label {
     font-size: .875rem
   }
-  .news-section__items {
-    grid-template-columns: 1fr
-  }
   .news-section__items:not(:last-child) {
     margin-bottom: 3rem
   }
@@ -2831,6 +2827,9 @@ body::after {
   }
   .mobile-menu__item {
     font-size: 1rem
+  }
+  .news-section__items {
+    grid-template-columns: 1fr
   }
 }
 @media (max-width:31.24875em) {
