@@ -12510,10 +12510,6 @@
             function createSvgIcon(color, circleFill = false) {
                 return `\n      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36" fill="none">\n<circle cx="14" cy="14" r="11" fill="${!circleFill ? "white" : "transparent"}"/>\n<g clip-path="url(#clip0_9_211)">\n<path d="M13.4626 20.3267C9.83721 20.3267 6.88081 17.3255 6.88081 13.6535C6.88081 9.98147 9.84095 6.98021 13.4626 6.98021C17.0843 6.98021 20.0444 9.98147 20.0444 13.6535C20.0444 17.3255 17.0843 20.3267 13.4626 20.3267ZM13.4626 0C6.06603 0 0 6.15032 0 13.6497C0 21.1491 12.4273 35.1739 12.9468 35.7764C13.0926 35.928 13.3131 36 13.5374 36C13.7616 36 13.9074 35.9242 14.0569 35.7764C14.5764 35.1777 27.0037 21.0013 27.0037 13.6497C26.9253 6.15032 20.8592 0 13.4626 0Z" fill="${color}"/>\n</g>\n<defs>\n<clipPath id="clip0_9_211">\n<rect width="27" height="36" fill="${!circleFill ? "white" : "transparent"}"/>\n</clipPath>\n</defs>\n</svg>\n\n  `;
             }
-            map.on("moveend", (function() {
-                const center = map.getCenter();
-                console.log(`${center.lat}, ${center.lng}`);
-            }));
             var iconWidth = 35;
             var iconHeight = 45;
             if (isMobileScreen) {
