@@ -8398,7 +8398,7 @@
                 if (selectOptions.length > 0) {
                     let selectOptionsHTML = ``;
                     if (this.getSelectPlaceholder(originalSelect) && !this.getSelectPlaceholder(originalSelect).show || originalSelect.multiple) selectOptions = selectOptions.filter((option => option.value));
-                    selectOptionsHTML += `<div ${selectOptionsScroll} ${selectOptionsScroll ? `style="max-height: ${customMaxHeightValue}px"` : ""} class="${this.selectClasses.classSelectOptionsScroll}">`;
+                    selectOptionsHTML += `<div ${selectOptionsScroll} ${selectOptionsScroll ? `style="height: ${customMaxHeightValue}px"` : ""} class="${this.selectClasses.classSelectOptionsScroll}">`;
                     selectOptions.forEach((selectOption => {
                         selectOptionsHTML += this.getOption(selectOption, originalSelect);
                     }));
