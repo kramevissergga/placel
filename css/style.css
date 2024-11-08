@@ -2773,16 +2773,16 @@ body::after {
     transform: translate(-50%,5%)
   }
 }
-@media (max-width:120.62375em) {
-  .services-section__items::after {
-    -webkit-transform: translate(50%,37.358491%);
-    transform: translate(50%,37.358491%)
-  }
-}
 @media (max-width:119.99875em) {
   .contacts-section__decor {
     -webkit-transform: translateY(1.2%);
     transform: translateY(1.2%)
+  }
+}
+@media (max-width:101.24875em) {
+  .services-section__items::after {
+    -webkit-transform: translate(50%,52%);
+    transform: translate(50%,52%)
   }
 }
 @media (max-width:93.74875em) {
