@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Home</title>
+	<title>Categories</title>
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 </head>
 
-<body>
+<body style="--page-color: #219CBB">
 	<div class="wrapper">
 		<header class="header">
 			<div class="header__container">
@@ -178,217 +178,303 @@
 				</div>
 			</div>
 		</div>
-		<main class="page">
-			<section class="page__hero hero">
-				<div class="hero__container">
-					<div class="hero__slider-wrapper">
-						<img data-da=".hero__body, 991.98" src="img/home/hero/label.svg" alt="Image" class="hero__label-image">
-						<div class="hero__slider splide">
-							<div class="splide__track">
-								<ul class="splide__list">
-									<li class="splide__slide">
-										<img src="img/home/hero/01.webp" alt="Image" class="ibg ibg--contain">
-									</li>
-									<li class="splide__slide">
-										<img src="img/home/hero/02.webp" alt="Image" class="ibg ibg--contain">
-									</li>
-								</ul>
+		<main data-lp class="page">
+			<div class="page__section-bg section-bg">
+				<div class="section-bg__hero">
+					<img src="img/categories/hero.webp" alt="Image" class="ibg">
+				</div>
+				<div class="section-bg__wrapper">
+					<div class="section-bg__container">
+						<div class="section-bg__body">
+							<div class="section-bg__categories categories">
+								<div class="categories__header section-bg-header">
+									<ul class="section-bg-header__breadcrumbs breadcrumbs">
+										<li class="breadcrumbs__item">
+											<a href="#" class="breadcrumbs__link ">
+												home
+											</a>
+										</li>
+										<li class="breadcrumbs__item">
+											<a href="#" class="breadcrumbs__link ">
+												services
+											</a>
+										</li>
+										<li class="breadcrumbs__item">
+											<a href="#" class="breadcrumbs__link ">
+												Smart Packaging
+											</a>
+										</li>
+									</ul>
+									<a href="#" class="section-bg-header__back _icon-square-arrow-left">back to services</a>
+								</div>
+								<div class="categories__content">
+									<h1 data-da="{.section-bg} .section-bg__hero, 991.98" class="categories__title title-section-bg">Smart
+										Packaging</h1>
+									<div class="categories__body">
+										<div data-spoilers="991.98, max" class="categories__filter filter-categories">
+											<details class="filter-categories__wrapper">
+												<summary class="filter-categories__header _icon-ch-down">Refine your Search</summary>
+												<div class="filter-categories__body">
+													<div class="filter-categories__search search-categories">
+														<button class="search-categories__button _icon-search">
+														</button>
+														<input type="text" placeholder="search product" class="search-categories__input">
+													</div>
+													<div class="filter-categories__block">
+														<h3 class="filter-categories__title filter-categories__title--categories">
+															Product Category
+														</h3>
+														<div class="filter-categories__categories">
+															<label class="filter-categories__checkbox checkbox-category">
+
+																<div class="checkbox-category__image">
+																	<img src="img/categories/filter/01.webp" alt="Image" class="ibg">
+																</div>
+																<div class="checkbox-category__label">
+																	Round Tools
+																</div>
+																<input type="checkbox" checked name="categories">
+															</label>
+															<label class="filter-categories__checkbox checkbox-category">
+																<div class="checkbox-category__image">
+																	<img src="img/categories/filter/02.webp" alt="Image" class="ibg">
+																</div>
+																<div class="checkbox-category__label">
+																	Tool Holders
+																</div>
+																<input type="checkbox" name="categories">
+															</label>
+															<label class="filter-categories__checkbox checkbox-category">
+																<div class="checkbox-category__image">
+																	<img src="img/categories/filter/03.webp" alt="Image" class="ibg">
+																</div>
+																<div class="checkbox-category__label">
+																	Inserts
+																</div>
+																<input type="checkbox" name="categories">
+															</label>
+															<label class="filter-categories__checkbox checkbox-category">
+																<div class="checkbox-category__image">
+																	<img src="img/categories/filter/04.webp" alt="Image" class="ibg">
+																</div>
+																<div class="checkbox-category__label">
+																	Micro Tools
+																</div>
+																<input type="checkbox" name="categories">
+															</label>
+														</div>
+													</div>
+												</div>
+											</details>
+										</div>
+										<div class="categories__products products-categories">
+											<div class="products-categories__header">
+												<div class="products-categories__label">
+													<span class="products-categories__label--pc">Showing products filtered by:</span>
+													<span class="products-categories__label--tablet">Search / Filter Results:</span> <span class="products-categories__label--category">Round
+														Tools</span>
+												</div>
+												<button class="products-categories__button _icon-cross-thin text-link"></button>
+											</div>
+											<div class="products-categories__items">
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/01.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														New Tool Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/02.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Tool Pack Hanger
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/03.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Micro Pack Improve
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/04.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Micro Center Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/05.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Round Tube
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/06.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Universal Multi Box
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/07.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Center Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/01.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Center Pack Collet
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/02.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Split Micro Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/03.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Micro Pack Extra
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/04.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Tool Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/05.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Bayo Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/06.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Bayo Pack SK
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/07.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Flip Pack
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/01.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Versa Box
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/02.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Insert Box
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+												<a href="#" class="products-categories__item item-product">
+													<div class="item-product__image">
+														<img src="img/categories/products/03.webp" alt="Image" class="ibg">
+													</div>
+													<h3 class="item-product__title">
+														Foam Insert Box
+													</h3>
+													<p class="item-product__text">
+														Lorem ipsum dolor sit amet constuctor im leom
+													</p>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="hero__body">
-						<h1 class="hero__title">
-							Simple, Smart & Sustainable<br>
-							<span>Plastic Solutions</span>
-						</h1>
-						<div class="hero__text text">
-							<p>
-								Seeking a smarter plastic manufacturing solution?
-								Plasel Plastic has the technological capacity backed by
-								innovative ideas and world-call logistics to drive
-								your product forward
-							</p>
-						</div>
-						<a href="#" class="hero__link button">Request Proposal</a>
-					</div>
-				</div>
-			</section>
-			<div class="page__video video-section">
-				<div class="video-section__container">
-					<div class="video-section__text text">
-						<p>
-							Whether you are crafting a new product or are seeking a smarter manufacturing solution foran existing one,
-							Plasel Plastic has the technological know-how,
-							backed by innovative ideas, world-class global service
-							and logistics to drive your project forward.
-						</p>
-					</div>
-					<div class="video-section__placeholder">
-						<div class="video-section__video">
-							<img src="img/home/video/video.webp" alt="Image" class="video-section__image">
-							<!-- Щоб відео відкрилось прямо в цьому блоці, а не в попапі - прибрати "data-popup="#yt-popup"" і додати "data-yt"-->
-							<button data-yt data-popup="#popup-video" data-popup-youtube="golsjsSLnVc" type="button" class="video-section__play-btn">
-								<svg>
-									<use xlink:href="img/icons.svg#play"></use>
-								</svg>
-							</button>
-						</div>
-					</div>
-					<a href="#" class="video-section__link button button--blue">
-						Search our Catalog
-					</a>
 				</div>
 			</div>
-			<section class="page__services services-section">
-				<div class="services-section__container">
-					<h2 class="services-section__title section-title">
-						Our Services
-					</h2>
-					<div class="services-section__items">
-						<a style="--bg-color: #219CBB" href="#" class="services-section__item item-services">
-							<img src="img/home/services/01.webp" alt="Image" class="item-services__image">
-							<h3 class="item-services__title">Smart Packaging</h3>
-							<ul class="item-services__list">
-								<li class="item-services__item">
-									Leading innovative packaging for cutting tool industries
-
-								</li>
-								<li class="item-services__item">
-									Building a global brand in plastic packaging
-								</li>
-								<li class="item-services__item">
-									Unrivaled flexible and professional services
-								</li>
-								<li class="item-services__item">
-									World-class logistics across the globe
-								</li>
-								<li class="item-services__item">
-									Strict manufacturing compliance
-								</li>
-							</ul>
-							<div class="item-services__label">Learn more >>></div>
-						</a>
-						<a style="--bg-color: #dd3d3d" href="#" class="services-section__item item-services">
-							<img src="img/home/services/02.webp" alt="Image" class="item-services__image">
-							<h3 class="item-services__title">Custom
-								Solutions</h3>
-							<ul class="item-services__list">
-								<li class="item-services__item">
-									Merging technology with innovation
-								</li>
-								<li class="item-services__item">
-									Injection molding
-								</li>
-								<li class="item-services__item">
-									Blow molding
-								</li>
-								<li class="item-services__item">
-									Complementary services
-								</li>
-							</ul>
-							<div class="item-services__label">Learn more >>></div>
-						</a>
-					</div>
-				</div>
-			</section>
-			<section class="page__locations locations-section">
-				<h2 class="locations-section__title section-title">
-					Locations & Distributors
-				</h2>
-				<div class="locations-section__map">
-					<div id="map"></div>
-				</div>
-			</section>
-			<section class="page__news-section news-section">
-				<div class="news-section__container">
-					<h2 class="news-section__title section-title">Latest News & Events</h2>
-					<div class="news-section__items">
-						<article class="news-section__item item-news">
-							<div class="item-news__header">
-								<a href="#" class="item-news__tag">News</a>
-								<div class="item-news__date">12.8.24</div>
-							</div>
-							<div class="item-news__body">
-								<h3 class="item-news__title">
-									<a href="#" class="item-news__link text-link">
-										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
-									</a>
-								</h3>
-								<p class="item-news__text">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua...
-								</p>
-							</div>
-							<a href="#" class="item-news__image-link">
-								<img src="img/home/news/01.webp" alt="Image" class="ibg">
-							</a>
-						</article>
-						<article class="news-section__item item-news">
-							<div class="item-news__header">
-								<a href="#" style="background-color: #219CBB;" class="item-news__tag">Event</a>
-								<div class="item-news__date">12.8.24</div>
-							</div>
-							<div class="item-news__body">
-								<h3 class="item-news__title">
-									<a href="#" class="item-news__link text-link">
-										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
-									</a>
-								</h3>
-								<p class="item-news__text">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua...
-								</p>
-							</div>
-							<a href="#" class="item-news__image-link">
-								<img src="img/home/news/02.webp" alt="Image" class="ibg">
-							</a>
-						</article>
-						<article class="news-section__item item-news">
-							<div class="item-news__header">
-								<a href="#" class="item-news__tag">News</a>
-								<div class="item-news__date">12.8.24</div>
-							</div>
-							<div class="item-news__body">
-								<h3 class="item-news__title">
-									<a href="#" class="item-news__link text-link">
-										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
-									</a>
-								</h3>
-								<p class="item-news__text">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua...
-								</p>
-							</div>
-							<a href="#" class="item-news__image-link">
-								<img src="img/home/news/03.webp" alt="Image" class="ibg">
-							</a>
-						</article>
-						<article class="news-section__item item-news">
-							<div class="item-news__header">
-								<a href="#" style="background-color: #219CBB;" class="item-news__tag">Event</a>
-								<div class="item-news__date">12.8.24</div>
-							</div>
-							<div class="item-news__body">
-								<h3 class="item-news__title">
-									<a href="#" class="item-news__link text-link">
-										Lorem ipsum dolor sit amet Ut enim ad minim veniam, quis nostrud
-									</a>
-								</h3>
-								<p class="item-news__text">
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-									dolore magna aliqua...
-								</p>
-							</div>
-							<a href="#" class="item-news__image-link">
-								<img src="img/home/news/04.webp" alt="Image" class="ibg">
-							</a>
-						</article>
-					</div>
-					<a href="#" class="news-section__link button">Visit News & events</a>
-				</div>
-			</section>
 		</main>
-		<section class="page__contacts-section contacts-section contacts-section--static">
+		<section class="page__contacts-section contacts-section">
 			<div class="contacts-section__container">
 				<h2 class="contacts-section__title section-title">Contact Us</h2>
 				<form action="#" method="post" enctype="multipart/form-data" class="contacts-section__form">

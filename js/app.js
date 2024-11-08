@@ -7664,6 +7664,9 @@
         };
         let bodyLockStatus = true;
         let isBodyLocked = false;
+        let bodyLockToggle = (delay = 500) => {
+            if (document.documentElement.classList.contains("lock")) bodyUnlock(delay); else bodyLock(delay);
+        };
         let bodyUnlock = (delay = 500) => {
             if (bodyLockStatus) {
                 const lockPaddingElements = document.querySelectorAll("[data-lp]");
@@ -7684,9 +7687,9 @@
         let bodyLock = (delay = 500) => {
             if (bodyLockStatus) {
                 const lockPaddingElements = document.querySelectorAll("[data-lp]");
-                const lockPaddingValue = window.innerWidth - document.body.offsetWidth + "px";
+                const lockPaddingValue = 0;
                 lockPaddingElements.forEach((lockPaddingElement => {
-                    lockPaddingElement.style.paddingRight = lockPaddingValue;
+                    lockPaddingElement.style.paddingRight = lockPaddingValue + "px";
                 }));
                 document.body.style.paddingRight = lockPaddingValue;
                 document.documentElement.classList.add("lock");
@@ -7697,10 +7700,161 @@
                 }), delay);
             }
         };
+        function spoilers() {
+            const spoilersArray = document.querySelectorAll("[data-spoilers]");
+            if (spoilersArray.length > 0) {
+                document.addEventListener("click", setspoilerAction);
+                const spoilersRegular = Array.from(spoilersArray).filter((function(item, index, self) {
+                    return !item.dataset.spoilers.split(",")[0];
+                }));
+                if (spoilersRegular.length) initspoilers(spoilersRegular);
+                let mdQueriesArray = dataMediaQueries(spoilersArray, "spoilers");
+                if (mdQueriesArray && mdQueriesArray.length) mdQueriesArray.forEach((mdQueriesItem => {
+                    mdQueriesItem.matchMedia.addEventListener("change", (function() {
+                        initspoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                    }));
+                    initspoilers(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+                }));
+                function initspoilers(spoilersArray, matchMedia = false) {
+                    spoilersArray.forEach((spoilersBlock => {
+                        spoilersBlock = matchMedia ? spoilersBlock.item : spoilersBlock;
+                        if (matchMedia.matches || !matchMedia) {
+                            spoilersBlock.classList.add("_spoiler-init");
+                            initspoilerBody(spoilersBlock);
+                        } else {
+                            spoilersBlock.classList.remove("_spoiler-init");
+                            initspoilerBody(spoilersBlock, false);
+                        }
+                    }));
+                }
+                function initspoilerBody(spoilersBlock, hidespoilerBody = true) {
+                    let spoilerItems = spoilersBlock.querySelectorAll("details");
+                    if (spoilerItems.length) spoilerItems.forEach((spoilerItem => {
+                        let spoilerTitle = spoilerItem.querySelector("summary");
+                        if (hidespoilerBody) {
+                            spoilerTitle.removeAttribute("tabindex");
+                            if (!spoilerItem.hasAttribute("data-open")) {
+                                spoilerItem.open = false;
+                                spoilerTitle.nextElementSibling.hidden = true;
+                            } else {
+                                spoilerTitle.classList.add("_spoiler-active");
+                                spoilerItem.open = true;
+                            }
+                        } else {
+                            spoilerTitle.setAttribute("tabindex", "-1");
+                            spoilerTitle.classList.remove("_spoiler-active");
+                            spoilerItem.open = true;
+                            spoilerTitle.nextElementSibling.hidden = false;
+                        }
+                    }));
+                }
+                function setspoilerAction(e) {
+                    const el = e.target;
+                    if (el.closest("summary") && el.closest("[data-spoilers]")) {
+                        e.preventDefault();
+                        if (el.closest("[data-spoilers]").classList.contains("_spoiler-init")) {
+                            const spoilerTitle = el.closest("summary");
+                            const spoilerBlock = spoilerTitle.closest("details");
+                            const spoilersBlock = spoilerTitle.closest("[data-spoilers]");
+                            const onespoiler = spoilersBlock.hasAttribute("data-one-spoiler");
+                            const scrollspoiler = spoilerBlock.hasAttribute("data-spoiler-scroll");
+                            const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed ? parseInt(spoilersBlock.dataset.spoilersSpeed) : 500;
+                            if (!spoilersBlock.querySelectorAll("._slide").length) {
+                                if (onespoiler && !spoilerBlock.open) hidespoilersBody(spoilersBlock);
+                                !spoilerBlock.open ? spoilerBlock.open = true : setTimeout((() => {
+                                    spoilerBlock.open = false;
+                                }), spoilerSpeed);
+                                spoilerTitle.classList.toggle("_spoiler-active");
+                                _slideToggle(spoilerTitle.nextElementSibling, spoilerSpeed);
+                                if (scrollspoiler && spoilerTitle.classList.contains("_spoiler-active")) {
+                                    const scrollspoilerValue = spoilerBlock.dataset.spoilerScroll;
+                                    const scrollspoilerOffset = +scrollspoilerValue ? +scrollspoilerValue : 0;
+                                    const scrollspoilerNoHeader = spoilerBlock.hasAttribute("data-spoiler-scroll-noheader") ? document.querySelector(".header").offsetHeight : 0;
+                                    window.scrollTo({
+                                        top: spoilerBlock.offsetTop - (scrollspoilerOffset + scrollspoilerNoHeader),
+                                        behavior: "smooth"
+                                    });
+                                }
+                            }
+                        }
+                    }
+                    if (!el.closest("[data-spoilers]")) {
+                        const spoilersClose = document.querySelectorAll("[data-spoiler-close]");
+                        if (spoilersClose.length) spoilersClose.forEach((spoilerClose => {
+                            const spoilersBlock = spoilerClose.closest("[data-spoilers]");
+                            const spoilerCloseBlock = spoilerClose.parentNode;
+                            if (spoilersBlock.classList.contains("_spoiler-init")) {
+                                const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed ? parseInt(spoilersBlock.dataset.spoilersSpeed) : 500;
+                                spoilerClose.classList.remove("_spoiler-active");
+                                _slideUp(spoilerClose.nextElementSibling, spoilerSpeed);
+                                setTimeout((() => {
+                                    spoilerCloseBlock.open = false;
+                                }), spoilerSpeed);
+                            }
+                        }));
+                    }
+                }
+                function hidespoilersBody(spoilersBlock) {
+                    const spoilerActiveBlock = spoilersBlock.querySelector("details[open]");
+                    if (spoilerActiveBlock && !spoilersBlock.querySelectorAll("._slide").length) {
+                        const spoilerActiveTitle = spoilerActiveBlock.querySelector("summary");
+                        const spoilerSpeed = spoilersBlock.dataset.spoilersSpeed ? parseInt(spoilersBlock.dataset.spoilersSpeed) : 500;
+                        spoilerActiveTitle.classList.remove("_spoiler-active");
+                        _slideUp(spoilerActiveTitle.nextElementSibling, spoilerSpeed);
+                        setTimeout((() => {
+                            spoilerActiveBlock.open = false;
+                        }), spoilerSpeed);
+                    }
+                }
+            }
+        }
         function functions_FLS(message) {
             setTimeout((() => {
                 if (window.FLS) console.log(message);
             }), 0);
+        }
+        function uniqArray(array) {
+            return array.filter((function(item, index, self) {
+                return self.indexOf(item) === index;
+            }));
+        }
+        function dataMediaQueries(array, dataSetValue) {
+            const media = Array.from(array).filter((function(item, index, self) {
+                if (item.dataset[dataSetValue]) return item.dataset[dataSetValue].split(",")[0];
+            }));
+            if (media.length) {
+                const breakpointsArray = [];
+                media.forEach((item => {
+                    const params = item.dataset[dataSetValue];
+                    const breakpoint = {};
+                    const paramsArray = params.split(",");
+                    breakpoint.value = paramsArray[0];
+                    breakpoint.type = paramsArray[1] ? paramsArray[1].trim() : "max";
+                    breakpoint.item = item;
+                    breakpointsArray.push(breakpoint);
+                }));
+                let mdQueries = breakpointsArray.map((function(item) {
+                    return "(" + item.type + "-width: " + item.value + "px)," + item.value + "," + item.type;
+                }));
+                mdQueries = uniqArray(mdQueries);
+                const mdQueriesArray = [];
+                if (mdQueries.length) {
+                    mdQueries.forEach((breakpoint => {
+                        const paramsArray = breakpoint.split(",");
+                        const mediaBreakpoint = paramsArray[1];
+                        const mediaType = paramsArray[2];
+                        const matchMedia = window.matchMedia(paramsArray[0]);
+                        const itemsArray = breakpointsArray.filter((function(item) {
+                            if (item.value === mediaBreakpoint && item.type === mediaType) return true;
+                        }));
+                        mdQueriesArray.push({
+                            itemsArray,
+                            matchMedia
+                        });
+                    }));
+                    return mdQueriesArray;
+                }
+            }
         }
         class Popup {
             constructor(options) {
@@ -11118,20 +11272,23 @@
             };
         }();
         document.addEventListener("DOMContentLoaded", (function() {
-            new Splide(".splide", {
-                type: "fade",
-                arrows: false,
-                pagination: false,
-                autoplay: true,
-                rewind: true,
-                interval: 5e3,
-                pauseOnHover: true,
-                breakpoints: {
-                    991.98: {
-                        pagination: true
+            const heroSliders = document.querySelectorAll(".hero__slider");
+            if (heroSliders.length) heroSliders.forEach((heroSlider => {
+                new Splide(heroSlider, {
+                    type: "fade",
+                    arrows: false,
+                    pagination: false,
+                    autoplay: true,
+                    rewind: true,
+                    interval: 3500,
+                    pauseOnHover: true,
+                    breakpoints: {
+                        991.98: {
+                            pagination: true
+                        }
                     }
-                }
-            }).mount();
+                }).mount();
+            }));
         }));
         function isObject_isObject(value) {
             var type = typeof value;
@@ -12134,7 +12291,13 @@
                     const оbject = {};
                     оbject.element = node;
                     оbject.parent = node.parentNode;
-                    оbject.destination = document.querySelector(`${dataArray[0].trim()}`);
+                    const parentSelectorMatch = dataArray[0].trim().match(/^\{(.+)\}(?:\s*(.+)?)$/);
+                    if (parentSelectorMatch) {
+                        const parentSelector = parentSelectorMatch[1].trim();
+                        const childSelector = parentSelectorMatch[2] ? parentSelectorMatch[2].trim() : null;
+                        const parentElement = node.closest(parentSelector);
+                        if (parentElement) оbject.destination = childSelector ? parentElement.querySelector(childSelector) : parentElement;
+                    } else оbject.destination = document.querySelector(`${dataArray[0].trim()}`);
                     оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767.98";
                     оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
                     оbject.index = this.indexInParent(оbject.parent, оbject.element);
@@ -12161,6 +12324,7 @@
                 }));
             }
             moveTo(place, element, destination) {
+                if (!destination) return;
                 element.classList.add(this.daClassname);
                 if (place === "last" || place >= destination.children.length) {
                     destination.append(element);
@@ -12232,8 +12396,8 @@
             const isGoBackBtn = event.target.closest("[data-go-back]");
             const isPlayBtn = event.target.closest("[data-yt]");
             if (isMenuOpenButton) {
-                document.documentElement.classList.add("menu-open");
-                if (isSmallScreen && !isBodyLocked) bodyLock(0);
+                document.documentElement.classList.toggle("menu-open");
+                if (isSmallScreen) bodyLockToggle(0);
             } else if (isMenuCloseButton) {
                 document.documentElement.classList.remove("menu-open");
                 if (isSmallScreen && isBodyLocked) bodyUnlock(0);
@@ -12241,7 +12405,7 @@
                 document.documentElement.classList.remove("menu-open");
                 if (isSmallScreen && isBodyLocked) bodyUnlock(0);
             }
-            if (isSearchOpenBtn) document.documentElement.classList.add("search-open"); else if (isSearchCloseBtn) document.documentElement.classList.remove("search-open");
+            if (isSearchOpenBtn) document.documentElement.classList.toggle("search-open"); else if (isSearchCloseBtn) document.documentElement.classList.remove("search-open");
             if (isGoBackBtn) window.scrollTo({
                 top: 0,
                 behavior: "smooth"
@@ -12276,213 +12440,220 @@
                 decorContainer.appendChild(newDecorItem);
             }
         }
-        L.Map.addInitHook("addHandler", "gestureHandling", leaflet_gesture_handling_min.GestureHandling);
-        var map = L.map("map", {
-            center: [ 57.12857, -15.82031 ],
-            zoom: 3,
-            minZoom: 3,
-            zoomControl: false,
-            tap: false,
-            maxBounds: [ [ 110, -210 ], [ -110, 210 ] ],
-            maxBoundsViscosity: 1,
-            gestureHandling: true
-        });
-        var markers = [ {
-            coords: [ 53.41988920082695, 22.962430526782214 ],
-            color: "#dd3d3d",
-            text: "Poland",
-            popupContent: `\n        <h4>Europe Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">Poland</span><br>\n        Plasel Poland <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
-        }, {
-            coords: [ 35.9078, 127.7669 ],
-            color: "#dd3d3d",
-            text: "S. Korea",
-            popupContent: `\n        <h4>Asia Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">S. Korea</span><br>\n        Plasel South Korea <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
-        }, {
-            coords: [ 37.7749, -122.4194 ],
-            color: "#dd3d3d",
-            text: "US West<br>Coast",
-            popupContent: `\n        <h4>US West Coast Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">US West Coast</span><br>\n        Plasel USA West Coast <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
-        }, {
-            coords: [ 39.8283, -98.5795 ],
-            color: "#dd3d3d",
-            text: "US, Canada<br>& Mexico",
-            popupContent: `\n        <h4>North America Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">US, Canada & Mexico</span><br>\n        Plasel North America <br>\n        Address details here<br>\n        Tel: <a href="tel:your_phone_number">+Your Phone Number</a><br>\n        Fax: <a href="tel:your_fax_number">+Your Fax Number</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
-        }, {
-            coords: [ 49.69308947170579, 9.64700094662242 ],
-            color: "#dd3d3d",
-            text: "Germany",
-            popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
-        }, {
-            coords: [ 41.9028, 12.4964 ],
-            color: "#dd3d3d",
-            text: "Italy",
-            popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
-        }, {
-            coords: [ 31.0461, 34.8516 ],
-            color: "#219cbb",
-            text: "Israel",
-            popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #219cbb " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
-        }, {
-            coords: [ 35.8617, 104.1954 ],
-            color: "#dd3d3d",
-            text: "China",
-            popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
-        }, {
-            coords: [ 20.5937, 78.9629 ],
-            color: "#dd3d3d",
-            text: "India",
-            popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
-        }, {
-            coords: [ 14.0583, 108.2772 ],
-            color: "#455a64",
-            text: "Vietnam",
-            popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #455a64 " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
-        } ];
-        function createSvgIcon(color, circleFill = false) {
-            return `\n      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36" fill="none">\n<circle cx="14" cy="14" r="11" fill="${!circleFill ? "white" : "transparent"}"/>\n<g clip-path="url(#clip0_9_211)">\n<path d="M13.4626 20.3267C9.83721 20.3267 6.88081 17.3255 6.88081 13.6535C6.88081 9.98147 9.84095 6.98021 13.4626 6.98021C17.0843 6.98021 20.0444 9.98147 20.0444 13.6535C20.0444 17.3255 17.0843 20.3267 13.4626 20.3267ZM13.4626 0C6.06603 0 0 6.15032 0 13.6497C0 21.1491 12.4273 35.1739 12.9468 35.7764C13.0926 35.928 13.3131 36 13.5374 36C13.7616 36 13.9074 35.9242 14.0569 35.7764C14.5764 35.1777 27.0037 21.0013 27.0037 13.6497C26.9253 6.15032 20.8592 0 13.4626 0Z" fill="${color}"/>\n</g>\n<defs>\n<clipPath id="clip0_9_211">\n<rect width="27" height="36" fill="${!circleFill ? "white" : "transparent"}"/>\n</clipPath>\n</defs>\n</svg>\n\n  `;
-        }
         let isMobileScreen = window.innerWidth <= 768;
         window.addEventListener("resize", (function() {
             isMobileScreen = window.innerWidth <= 768;
         }));
-        var iconWidth = 35;
-        var iconHeight = 45;
-        if (isMobileScreen) {
-            iconWidth = 27;
-            iconHeight = 36;
-        }
-        var popupOffsetY = -iconHeight / 2;
-        var mobilePane = map.createPane("mobile-popup", document.getElementById("map"));
-        mobilePane.style.zIndex = 400;
-        markers.forEach((function(marker) {
-            var icon = L.divIcon({
-                className: "custom-marker",
-                html: `<span style="color: ${marker.color};">${marker.text}</span>${createSvgIcon(marker.color, true)}`,
-                iconAnchor: [ iconWidth / 2, iconHeight ],
-                iconSize: [ iconWidth, iconHeight ]
+        if (document.getElementById("map")) {
+            L.Map.addInitHook("addHandler", "gestureHandling", leaflet_gesture_handling_min.GestureHandling);
+            var map = L.map("map", {
+                center: !isMobileScreen ? [ 63.430755289491145, 17.231663908757707 ] : [ 45.23778897310703, 14.132800698280336 ],
+                zoom: 3,
+                minZoom: 3,
+                zoomControl: false,
+                tap: false,
+                maxBounds: [ [ 110, -210 ], [ -110, 210 ] ],
+                maxBoundsViscosity: 1,
+                gestureHandling: true
             });
-            var mapMarker = L.marker(marker.coords, {
-                icon
-            }).addTo(map).bindPopup(marker.popupContent + createSvgIcon(marker.color), {
-                className: "custom-popup",
-                pane: isMobileScreen ? "mobile-popup" : "popupPane",
-                autoPan: !isMobileScreen,
-                offset: L.point(120, popupOffsetY)
-            });
-            mapMarker.on("popupopen", (function() {
-                var popup = mapMarker.getPopup();
-                var popupElement = popup.getElement();
-                if (popupElement) {
-                    var popupHeight = popupElement.offsetHeight;
-                    var popupWidth = popupElement.offsetWidth;
-                    popup.options.offset = L.point(popupWidth / 2, popupHeight / 2 - 3);
-                    popup.update();
-                }
+            var markers = [ {
+                coords: [ 53.41988920082695, 22.962430526782214 ],
+                color: "#dd3d3d",
+                text: "Poland",
+                popupContent: `\n        <h4>Europe Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">Poland</span><br>\n        Plasel Poland <br>\n        Address details here<br>\n        Tel: <a href="tel:497543934499">+49-7543934499</a><br>\n        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+            }, {
+                coords: [ 35.9078, 127.7669 ],
+                color: "#dd3d3d",
+                text: "S. Korea",
+                popupContent: `\n        <h4>Asia Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">S. Korea</span><br>\n        Plasel South Korea <br>\n        Address details here<br>\n        Tel: <a href="tel:497543934499">+49-7543934499</a><br>\n        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+            }, {
+                coords: [ 37.7749, -122.4194 ],
+                color: "#dd3d3d",
+                text: "US West<br>Coast",
+                popupContent: `\n        <h4>US West Coast Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">US West Coast</span><br>\n        Plasel USA West Coast <br>\n        Address details here<br>\n        Tel: <a href="tel:497543934499">+49-7543934499</a><br>\n        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+            }, {
+                coords: [ 39.8283, -98.5795 ],
+                color: "#dd3d3d",
+                text: "US, Canada<br>& Mexico",
+                popupContent: `\n        <h4>North America Headquarters</h4>\n        <span style="color: #dd3d3d " class="name _icon-ch-right">US, Canada & Mexico</span><br>\n        Plasel North America <br>\n        Address details here<br>\n        Tel: <a href="tel:497543934499">+49-7543934499</a><br>\n        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>\n    `
+            }, {
+                coords: [ 49.69308947170579, 9.64700094662242 ],
+                color: "#dd3d3d",
+                text: "Germany",
+                popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
+            }, {
+                coords: [ 41.9028, 12.4964 ],
+                color: "#dd3d3d",
+                text: "Italy",
+                popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
+            }, {
+                coords: [ 31.0461, 34.8516 ],
+                color: "#219cbb",
+                text: "Israel",
+                popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #219cbb " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
+            }, {
+                coords: [ 35.8617, 104.1954 ],
+                color: "#dd3d3d",
+                text: "China",
+                popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
+            }, {
+                coords: [ 20.5937, 78.9629 ],
+                color: "#dd3d3d",
+                text: "India",
+                popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
+            }, {
+                coords: [ 14.0583, 108.2772 ],
+                color: "#556c76",
+                text: "Vietnam",
+                popupContent: `\n                <h4>Europe Headquarters</h4>\n                <span style="color: #556c76 " class="name _icon-ch-right">Germany</span><br>\n                Plasel Deutschland GmbH <br>\n                Dr. Klein 10 Str. 17, 88069 Tettnang<br>\n                Eori number - DE 7068115<br>\n                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>\n                Fax: <a href="tel:497543934499">+49-7543934499</a><br>\n                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>\n                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>\n            `
+            } ];
+            function createSvgIcon(color, circleFill = false) {
+                return `\n      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36" fill="none">\n<circle cx="14" cy="14" r="11" fill="${!circleFill ? "white" : "transparent"}"/>\n<g clip-path="url(#clip0_9_211)">\n<path d="M13.4626 20.3267C9.83721 20.3267 6.88081 17.3255 6.88081 13.6535C6.88081 9.98147 9.84095 6.98021 13.4626 6.98021C17.0843 6.98021 20.0444 9.98147 20.0444 13.6535C20.0444 17.3255 17.0843 20.3267 13.4626 20.3267ZM13.4626 0C6.06603 0 0 6.15032 0 13.6497C0 21.1491 12.4273 35.1739 12.9468 35.7764C13.0926 35.928 13.3131 36 13.5374 36C13.7616 36 13.9074 35.9242 14.0569 35.7764C14.5764 35.1777 27.0037 21.0013 27.0037 13.6497C26.9253 6.15032 20.8592 0 13.4626 0Z" fill="${color}"/>\n</g>\n<defs>\n<clipPath id="clip0_9_211">\n<rect width="27" height="36" fill="${!circleFill ? "white" : "transparent"}"/>\n</clipPath>\n</defs>\n</svg>\n\n  `;
+            }
+            map.on("moveend", (function() {
+                const center = map.getCenter();
+                console.log(`${center.lat}, ${center.lng}`);
             }));
-        }));
-        L.gridLayer.googleMutant({
-            type: "roadmap",
-            noWrap: true,
-            styles: [ {
-                featureType: "administrative",
-                elementType: "labels",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "administrative",
-                elementType: "geometry",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "administrative.country",
-                elementType: "geometry.stroke",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "administrative.province",
-                elementType: "geometry.stroke",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "landscape",
-                elementType: "geometry",
-                stylers: [ {
-                    visibility: "on"
+            var iconWidth = 35;
+            var iconHeight = 45;
+            if (isMobileScreen) {
+                iconWidth = 27;
+                iconHeight = 36;
+            }
+            var popupOffsetY = -iconHeight / 2;
+            var mobilePane = map.createPane("mobile-popup", document.getElementById("map"));
+            mobilePane.style.zIndex = 400;
+            markers.forEach((function(marker) {
+                var icon = L.divIcon({
+                    className: "custom-marker",
+                    html: `<span style="color: ${marker.color};">${marker.text}</span>${createSvgIcon(marker.color, true)}`,
+                    iconAnchor: [ iconWidth / 2, iconHeight ],
+                    iconSize: [ iconWidth, iconHeight ]
+                });
+                var mapMarker = L.marker(marker.coords, {
+                    icon
+                }).addTo(map).bindPopup(marker.popupContent + createSvgIcon(marker.color), {
+                    className: "custom-popup",
+                    pane: isMobileScreen ? "mobile-popup" : "popupPane",
+                    autoPan: !isMobileScreen,
+                    offset: L.point(120, popupOffsetY)
+                });
+                mapMarker.on("popupopen", (function() {
+                    var popup = mapMarker.getPopup();
+                    var popupElement = popup.getElement();
+                    if (popupElement) {
+                        var popupHeight = popupElement.offsetHeight;
+                        var popupWidth = popupElement.offsetWidth;
+                        popup.options.offset = L.point(popupWidth / 2, popupHeight / 2 - 3);
+                        popup.update();
+                    }
+                }));
+            }));
+            L.gridLayer.googleMutant({
+                type: "roadmap",
+                noWrap: true,
+                styles: [ {
+                    featureType: "administrative",
+                    elementType: "labels",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
                 }, {
-                    color: "#e3e3e3"
+                    featureType: "administrative",
+                    elementType: "geometry",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "administrative.country",
+                    elementType: "geometry.stroke",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "administrative.province",
+                    elementType: "geometry.stroke",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "landscape",
+                    elementType: "geometry",
+                    stylers: [ {
+                        visibility: "on"
+                    }, {
+                        color: "#cccccc"
+                    } ]
+                }, {
+                    featureType: "landscape.natural",
+                    elementType: "labels",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "poi",
+                    elementType: "all",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "road",
+                    elementType: "all",
+                    stylers: [ {
+                        color: "#cccccc"
+                    } ]
+                }, {
+                    featureType: "road",
+                    elementType: "labels",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "transit",
+                    elementType: "labels.icon",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "transit.line",
+                    elementType: "geometry",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "transit.line",
+                    elementType: "labels.text",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "transit.station.airport",
+                    elementType: "geometry",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "transit.station.airport",
+                    elementType: "labels",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
+                }, {
+                    featureType: "water",
+                    elementType: "geometry",
+                    stylers: [ {
+                        color: "#FFFFFF"
+                    } ]
+                }, {
+                    featureType: "water",
+                    elementType: "labels",
+                    stylers: [ {
+                        visibility: "off"
+                    } ]
                 } ]
-            }, {
-                featureType: "landscape.natural",
-                elementType: "labels",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "poi",
-                elementType: "all",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "road",
-                elementType: "all",
-                stylers: [ {
-                    color: "#cccccc"
-                } ]
-            }, {
-                featureType: "road",
-                elementType: "labels",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "transit",
-                elementType: "labels.icon",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "transit.line",
-                elementType: "geometry",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "transit.line",
-                elementType: "labels.text",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "transit.station.airport",
-                elementType: "geometry",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "transit.station.airport",
-                elementType: "labels",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            }, {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [ {
-                    color: "#FFFFFF"
-                } ]
-            }, {
-                featureType: "water",
-                elementType: "labels",
-                stylers: [ {
-                    visibility: "off"
-                } ]
-            } ]
-        }).addTo(map);
+            }).addTo(map);
+        }
         window["FLS"] = false;
+        spoilers();
     })();
 })();
