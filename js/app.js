@@ -7687,7 +7687,7 @@
         let bodyLock = (delay = 500) => {
             if (bodyLockStatus) {
                 const lockPaddingElements = document.querySelectorAll("[data-lp]");
-                const lockPaddingValue = 0;
+                const lockPaddingValue = window.innerWidth - document.body.offsetWidth + "px";
                 lockPaddingElements.forEach((lockPaddingElement => {
                     lockPaddingElement.style.paddingRight = lockPaddingValue + "px";
                 }));

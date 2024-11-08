@@ -168,6 +168,12 @@ details summary {
 details summary::-webkit-details-marker {
   display: none
 }
+input {
+  border-radius: 0
+}
+input[type=search] {
+  -webkit-appearance: none
+}
 .lock body {
   overflow: hidden;
   touch-action: none;
@@ -211,7 +217,7 @@ details summary::-webkit-details-marker {
   color: inherit;
   flex-grow: 1;
   text-align: left;
-  border: .0625rem solid #a7a7a7;
+  border: .0625rem solid #bec4c4;
   font-size: 1rem;
   cursor: pointer;
   width: 100%;
@@ -558,6 +564,22 @@ body::after {
   height: 2.875rem;
   background-color: #fff
 }
+.field__input::-webkit-input-placeholder,
+.field__textarea::-webkit-input-placeholder {
+  color: #000
+}
+.field__input:-ms-input-placeholder,
+.field__textarea:-ms-input-placeholder {
+  color: #000
+}
+.field__input::-ms-input-placeholder,
+.field__textarea::-ms-input-placeholder {
+  color: #000
+}
+.field__input::placeholder,
+.field__textarea::placeholder {
+  color: #000
+}
 .field:has(.field__label) .field__input::-webkit-input-placeholder,
 .field:has(.field__label) .field__textarea::-webkit-input-placeholder {
   visibility: hidden
@@ -575,8 +597,13 @@ body::after {
   visibility: hidden
 }
 .field__textarea {
+  display: flex;
+  align-items: center;
   resize: none;
-  height: 2.8125rem
+  height: 2.8125rem;
+  padding-top: .9375rem;
+  padding-bottom: .9375rem;
+  overflow: hidden
 }
 .decor-contacts {
   position: relative;
@@ -627,7 +654,7 @@ body::after {
   flex-direction: column
 }
 .contacts-section__form .select__value {
-  height: 2.875rem
+  height: 2.76875rem
 }
 .contacts-section__label {
   position: relative;
@@ -2493,8 +2520,26 @@ body::after {
   }
 }
 @media (min-width:37.49875em) {
+  .field__label--top {
+    -webkit-transform: none;
+    transform: none;
+    top: .6875rem
+  }
+  .field:has(.field__input:not(:-ms-input-placeholder)) .field__label.field__label--top,
+  .field:has(.field__textarea:not(:-ms-input-placeholder)) .field__label.field__label--top {
+    transform: translateX(.625rem)
+  }
+  .field:has(.field__input:focus) .field__label.field__label--top,
+  .field:has(.field__input:not(:placeholder-shown)) .field__label.field__label--top,
+  .field:has(.field__textarea:focus) .field__label.field__label--top,
+  .field:has(.field__textarea:not(:placeholder-shown)) .field__label.field__label--top {
+    -webkit-transform: translateX(.625rem);
+    transform: translateX(.625rem)
+  }
   .field__textarea {
-    height: 6.4375rem
+    height: 6.4375rem;
+    padding-top: .6875rem;
+    padding-bottom: .6875rem
   }
   .contacts-section__field--full {
     grid-column: span 2
@@ -2946,6 +2991,9 @@ body::after {
   .select__title {
     font-size: .875rem
   }
+  .select__value {
+    padding: .625rem 1.125rem
+  }
   .select__option {
     font-size: .875rem
   }
@@ -2966,7 +3014,8 @@ body::after {
     font-size: 1.5625rem
   }
   .field__label {
-    font-size: .875rem
+    font-size: .875rem;
+    left: 1.1875rem
   }
   .field__input,
   .field__textarea {
@@ -2976,7 +3025,7 @@ body::after {
     background-color: #fff
   }
   .contacts-section__form .select__value {
-    height: 2.8125rem
+    height: 2.7125rem
   }
   .contacts-section__label {
     display: none
