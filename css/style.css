@@ -3591,6 +3591,11 @@ body::after {
     }
   }
 }
+@media (max-width:81.24875em)and (min-width:47.99875em) {
+  .footer__menu {
+    max-width: 43.75rem
+  }
+}
 @media (min-width:61.99875em)and (max-width:89.3125em) {
   @supports (padding-right:clamp(11.25rem ,6.9939876894rem + 6.8646743856vw ,13.125rem)) {
     .hero__body {
