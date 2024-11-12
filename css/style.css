@@ -478,13 +478,15 @@ body::after {
   align-items: center;
   justify-content: center
 }
+.text-link {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .3s
+}
 .locations-section__map .custom-popup .leaflet-popup-content a {
   text-decoration: underline;
   text-decoration-color: inherit;
   transition: text-decoration-color .3s
-}
-.text-link {
-  transition: color .3s
 }
 .social {
   display: flex;
@@ -564,35 +566,9 @@ body::after {
   height: 2.875rem;
   background-color: #fff
 }
-.field__input::-webkit-input-placeholder,
-.field__textarea::-webkit-input-placeholder {
-  color: #000
-}
-.field__input:-ms-input-placeholder,
-.field__textarea:-ms-input-placeholder {
-  color: #000
-}
-.field__input::-ms-input-placeholder,
-.field__textarea::-ms-input-placeholder {
-  color: #000
-}
-.field__input::placeholder,
-.field__textarea::placeholder {
-  color: #000
-}
-.field:has(.field__label) .field__input::-webkit-input-placeholder,
-.field:has(.field__label) .field__textarea::-webkit-input-placeholder {
-  visibility: hidden
-}
-.field:has(.field__label) .field__input:-ms-input-placeholder,
-.field:has(.field__label) .field__textarea:-ms-input-placeholder {
-  visibility: hidden
-}
-.field:has(.field__label) .field__input::-ms-input-placeholder,
-.field:has(.field__label) .field__textarea::-ms-input-placeholder {
-  visibility: hidden
-}
+.field:has(.field__label) .field__input::-moz-placeholder,
 .field:has(.field__label) .field__input::placeholder,
+.field:has(.field__label) .field__textarea::-moz-placeholder,
 .field:has(.field__label) .field__textarea::placeholder {
   visibility: hidden
 }
@@ -630,6 +606,46 @@ body::after {
   width: 100%;
   height: 100%
 }
+.form-contacts__label {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  font-size: 1rem;
+  gap: .6875rem;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0
+}
+.form-contacts__label:not(:last-child) {
+  margin-bottom: 1.1875rem
+}
+.form-contacts__label .select {
+  width: 17rem
+}
+.form-contacts__label-mobile {
+  color: #262626;
+  font-size: .875rem
+}
+.form-contacts__label-mobile>span {
+  color: #dd3d3d
+}
+.form-contacts__label-mobile:not(:last-child) {
+  margin-bottom: .875rem
+}
+.form-contacts__items {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: .9375rem 2.0625rem
+}
+.form-contacts__items:not(:last-child) {
+  margin-bottom: 3.875rem
+}
+.form-contacts__button {
+  min-width: 14rem;
+  align-self: center
+}
 .contacts-section {
   background-color: #e9e9e9;
   position: relative
@@ -657,46 +673,6 @@ body::after {
 .contacts-section__form .select__value {
   height: 2.76875rem
 }
-.contacts-section__label {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  font-size: 1rem;
-  gap: .6875rem;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0
-}
-.contacts-section__label:not(:last-child) {
-  margin-bottom: 1.1875rem
-}
-.contacts-section__label .select {
-  width: 17rem
-}
-.contacts-section__label-mobile {
-  color: #262626;
-  font-size: .875rem
-}
-.contacts-section__label-mobile>span {
-  color: #dd3d3d
-}
-.contacts-section__label-mobile:not(:last-child) {
-  margin-bottom: .875rem
-}
-.contacts-section__items {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  gap: .9375rem 2.0625rem
-}
-.contacts-section__items:not(:last-child) {
-  margin-bottom: 3.875rem
-}
-.contacts-section__button {
-  min-width: 14rem;
-  align-self: center
-}
 .contacts-section__decor {
   position: absolute;
   bottom: 0;
@@ -712,7 +688,9 @@ body::after {
 }
 .section-bg-header {
   display: flex;
-  align-items: center
+  align-items: center;
+  border-top-right-radius: 3.125rem;
+  overflow: hidden
 }
 .section-bg-header__breadcrumbs {
   padding-top: 1.875rem;
@@ -1148,9 +1126,6 @@ body::after {
   color: #fff;
   line-height: 1.5
 }
-.footer__link {
-  transition: color .3s
-}
 .footer__content {
   display: flex;
   gap: 2.8125rem
@@ -1220,8 +1195,12 @@ body::after {
   justify-content: start;
   align-items: center;
   font-size: .875rem;
-  gap: .3125rem;
-  transition: color .3s
+  gap: .3125rem
+}
+.footer__up>span {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color .3s
 }
 .footer__up::before {
   border: .125rem solid #fff;
@@ -1776,8 +1755,10 @@ body::after {
   padding: 4.75rem 2.4375rem;
   padding-top: 0;
   border-top-right-radius: 3.125rem;
-  overflow: hidden;
   box-shadow: 0 .0625rem .40625rem rgba(0,1,1,.15)
+}
+.section-bg__body--cs {
+  padding-bottom: 7.25rem
 }
 .categories__header {
   margin-right: -2.4375rem
@@ -1992,8 +1973,24 @@ body::after {
 .services-sm__text {
   line-height: 1.43
 }
+.services-sm__text:not(:last-child) {
+  margin-bottom: 1.25rem
+}
 .services-sm__text--cs {
   max-width: 59.9375rem
+}
+.services-sm__text--cs h2 {
+  max-width: 38.4375rem
+}
+.services-sm__links {
+  display: flex;
+  flex-direction: column;
+  gap: .3125rem
+}
+.services-sm__link {
+  color: var(--page-color,#dd3d3d);
+  line-height: 1.18;
+  font-weight: 700
 }
 .title-sm {
   font-size: 1.75rem;
@@ -2079,6 +2076,10 @@ body::after {
   display: grid;
   gap: 3.125rem
 }
+.about-sm__decor {
+  -webkit-transform: translate(-1.875rem,calc(1.2% + 5rem));
+  transform: translate(-1.875rem,calc(1.2% + 5rem))
+}
 .item-about-sm__image {
   width: 5.9375rem;
   height: 5.9375rem
@@ -2098,6 +2099,32 @@ body::after {
 .item-about-sm__text {
   color: #fff;
   line-height: 1.5
+}
+.item-about-sm__text ul li {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center
+}
+.item-about-sm__text ul li::before {
+  content: "";
+  background-color: #fff;
+  width: .3125rem;
+  height: .3125rem;
+  border-radius: 50%;
+  flex-shrink: 0
+}
+.contacts-services-sm__title:not(:last-child) {
+  margin-bottom: .5625rem
+}
+.contacts-services-sm__label:not(:last-child) {
+  margin-bottom: 2rem
+}
+.contacts-services-sm__form .form-contacts__items:not(:last-child) {
+  margin-bottom: 2.5rem
+}
+.form-contacts {
+  display: flex;
+  flex-direction: column
 }
 .splide__container {
   box-sizing: border-box;
@@ -2687,7 +2714,7 @@ body::after {
     padding-top: .6875rem;
     padding-bottom: .6875rem
   }
-  .contacts-section__field--full {
+  .form-contacts__field--full {
     grid-column: span 2
   }
   .mobile-menu__logo {
@@ -2711,7 +2738,7 @@ body::after {
   }
 }
 @media (min-width:47.99875em) {
-  .contacts-section__label-mobile {
+  .form-contacts__label-mobile {
     display: none
   }
   .footer__container {
@@ -2744,8 +2771,12 @@ body::after {
   .locations-section__map .custom-popup .leaflet-popup-close-button {
     display: none
   }
-  .services-sm__text {
+  .services-sm__wrapper {
     padding-top: 1.375rem
+  }
+  .contacts-services-sm__form {
+    max-width: 37.1875rem;
+    margin-left: 1.5625rem
   }
 }
 @media (min-width:61.99875em) {
@@ -2926,6 +2957,13 @@ body::after {
   }
   .section-bg__hero {
     height: 31.25rem
+  }
+}
+@media (min-width:112.49875em) {
+  .about-sm__decor {
+    -webkit-transform: translate(-50%,calc(1.2% + 5rem));
+    transform: translate(-50%,calc(1.2% + 5rem));
+    margin-top: -5rem
   }
 }
 @media (max-width:119.99875em) {
@@ -3185,17 +3223,17 @@ body::after {
     height: 2.8125rem;
     background-color: #fff
   }
-  .contacts-section__form .select__value {
-    height: 2.7125rem
-  }
-  .contacts-section__label {
+  .form-contacts__label {
     display: none
   }
-  .contacts-section__button {
+  .form-contacts__button {
     border-radius: 1.25rem 0;
     align-self: stretch;
     padding-top: 1.03125rem;
     padding-bottom: 1.03125rem
+  }
+  .contacts-section__form .select__value {
+    height: 2.7125rem
   }
   .header__cart {
     width: 2.9375rem;
@@ -3417,6 +3455,9 @@ body::after {
   .services-sm__body {
     grid-template-columns: 1fr
   }
+  .services-sm__link {
+    font-size: 1rem
+  }
   .title-sm {
     font-size: 1.375rem
   }
@@ -3464,6 +3505,10 @@ body::after {
   .about-sm__body {
     gap: 1.875rem
   }
+  .about-sm__decor {
+    -webkit-transform: translate(-1.25rem,calc(1.2% + 1.6875rem));
+    transform: translate(-1.25rem,calc(1.2% + 1.6875rem))
+  }
   .item-about-sm__image:not(:last-child) {
     margin-bottom: 1rem
   }
@@ -3474,8 +3519,24 @@ body::after {
   .item-about-sm__title {
     font-size: 1.5rem
   }
+  .item-about-sm__text ul {
+    padding-left: .5625rem
+  }
+  .item-about-sm__text ul li {
+    gap: .625rem
+  }
   .item-about-sm__text {
     font-size: 1rem
+  }
+  .contacts-services-sm__title {
+    line-height: 1.3
+  }
+  .contacts-services-sm__label {
+    font-size: 1rem;
+    line-height: 1.75
+  }
+  .contacts-services-sm__label:not(:last-child) {
+    margin-bottom: 1.5625rem
   }
 }
 @media (max-width:47.99875em)and (max-width:47.99875em) {
@@ -3527,14 +3588,14 @@ body::after {
   }
 }
 @media (max-width:37.49875em) {
-  .contacts-section__container {
-    align-items: stretch
-  }
-  .contacts-section__items {
+  .form-contacts__items {
     grid-template-columns: 1fr
   }
-  .contacts-section__items:not(:last-child) {
+  .form-contacts__items:not(:last-child) {
     margin-bottom: 2.4375rem
+  }
+  .contacts-section__container {
+    align-items: stretch
   }
   .header {
     box-shadow: 0 .25rem .25rem 0 rgba(0,0,0,.25)
@@ -3908,11 +3969,11 @@ body::after {
   .select__option:hover {
     background: #f3f3f3
   }
+  .text-link:hover {
+    text-decoration-color: inherit
+  }
   .locations-section__map .custom-popup .leaflet-popup-content a:hover {
     text-decoration-color: transparent
-  }
-  .text-link:hover {
-    color: #dd3d3d
   }
   .social__item:hover svg {
     -webkit-transform: scale(.9);
@@ -3967,14 +4028,8 @@ body::after {
   .mobile-menu__close:hover {
     color: #dd3d3d
   }
-  .footer__link:hover {
-    color: #dd3d3d
-  }
-  .footer__up:hover {
-    color: #dd3d3d
-  }
-  .footer__up:hover::before {
-    border-color: #dd3d3d
+  .footer__up:hover>span {
+    text-decoration-color: inherit
   }
   .video-section__video:has(.video-section__play-btn:hover) .video-section__image {
     -webkit-transform: scale(1.05);
@@ -4018,6 +4073,13 @@ body::after {
   }
   .checkbox-category:hover .checkbox-category__label {
     color: var(--page-color,#dd3d3d)
+  }
+  .services-sm__link {
+    transition: text-decoration-color .3s;
+    text-decoration: underline
+  }
+  .services-sm__link:hover {
+    text-decoration-color: transparent
   }
   .catalog-sm:hover {
     background-color: rgba(69,90,100,.2)
