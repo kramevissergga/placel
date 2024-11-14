@@ -480,7 +480,7 @@ body::after {
   align-items: center;
   justify-content: center
 }
-.footer__credits>a,
+.footer__credits a,
 .text-link {
   text-decoration: underline;
   text-decoration-color: transparent;
@@ -625,6 +625,9 @@ body::after {
 .form-contacts__label .select {
   width: 17rem
 }
+.form-contacts .select__value {
+  height: 2.76875rem
+}
 .form-contacts__label-mobile {
   color: #262626;
   font-size: .875rem
@@ -672,9 +675,6 @@ body::after {
   padding: 0 1.25rem;
   display: flex;
   flex-direction: column
-}
-.contacts-section__form .select__value {
-  height: 2.76875rem
 }
 .contacts-section__decor {
   position: absolute;
@@ -788,7 +788,7 @@ body::after {
   box-shadow: 0 .0625rem .40625rem rgba(0,1,1,.15)
 }
 .section-bg__body--cs {
-  padding-bottom: 7.25rem
+  padding-bottom: 7rem
 }
 .section-bg__body--advantages {
   padding-bottom: 2rem
@@ -1813,7 +1813,7 @@ body::after {
   z-index: 2
 }
 .filter-categories {
-  background-color: #f0f1f2
+  background-color: #eceeef
 }
 .filter-categories__header {
   font-size: 1.25rem;
@@ -1837,8 +1837,7 @@ body::after {
   transform: rotate(180deg)
 }
 .filter-categories__body {
-  padding: 2.0625rem .9375rem;
-  padding: 1.375rem .5625rem .875rem
+  padding: 2.0625rem .9375rem
 }
 .filter-categories__search:not(:last-child) {
   margin-bottom: 2.9375rem
@@ -1948,7 +1947,7 @@ body::after {
 .products-categories__header {
   padding: .625rem .6875rem .625rem 1.4375rem;
   background-color: var(--page-color,#455a64);
-  border-top-left-radius: .625rem;
+  border-top-left-radius: 1.25rem;
   display: flex;
   align-items: center;
   gap: 1.25rem;
@@ -2040,7 +2039,8 @@ body::after {
   max-width: 59.9375rem
 }
 .services-sm__text--cs h2 {
-  max-width: 38.4375rem
+  max-width: 38.4375rem;
+  line-height: 1.22
 }
 .services-sm__links {
   display: flex;
@@ -2138,8 +2138,8 @@ body::after {
   gap: 3.125rem
 }
 .about-sm__decor {
-  -webkit-transform: translate(-1.875rem,calc(1.2% + 5rem));
-  transform: translate(-1.875rem,calc(1.2% + 5rem))
+  -webkit-transform: translate(-1.875rem,calc(2% + 5rem));
+  transform: translate(-1.875rem,calc(2% + 5rem))
 }
 .item-about-sm__image {
   width: 5.9375rem;
@@ -3131,8 +3131,8 @@ body::after {
 }
 @media (min-width:112.49875em) {
   .about-sm__decor {
-    -webkit-transform: translate(-50%,calc(1.2% + 5rem));
-    transform: translate(-50%,calc(1.2% + 5rem));
+    -webkit-transform: translate(-50%,calc(2% + 5rem));
+    transform: translate(-50%,calc(2% + 5rem));
     margin-top: -5rem
   }
 }
@@ -3188,7 +3188,7 @@ body::after {
     box-shadow: none
   }
   .section-bg__body--sm {
-    padding-bottom: 2.375rem
+    padding-bottom: 2.625rem
   }
   .header__container {
     gap: 1.3125rem
@@ -3339,7 +3339,8 @@ body::after {
     grid-template-columns: repeat(4,1fr)
   }
   .products-categories__header {
-    padding: .53125rem .875rem .53125rem 1.25rem
+    padding: .53125rem .875rem .53125rem 1.25rem;
+    border-top-left-radius: 1.09375rem
   }
   .products-categories__header:not(:last-child) {
     margin-bottom: 0
@@ -3415,14 +3416,17 @@ body::after {
   .form-contacts__label {
     display: none
   }
+  .form-contacts .select__value {
+    height: 2.7125rem
+  }
   .form-contacts__button {
     border-radius: 1.25rem 0;
     align-self: stretch;
     padding-top: 1.03125rem;
     padding-bottom: 1.03125rem
   }
-  .contacts-section__form .select__value {
-    height: 2.7125rem
+  .section-bg__body--cs {
+    padding-bottom: 1.5625rem
   }
   .section-bg__body--advantages {
     padding-bottom: 2.625rem
@@ -3628,6 +3632,9 @@ body::after {
   .locations-section__map .custom-popup .leaflet-popup-content .name::before {
     right: calc(100% + .75rem)
   }
+  .filter-categories__body {
+    padding: 1.375rem .5625rem .875rem
+  }
   .filter-categories__search:not(:last-child) {
     margin-bottom: 1.0625rem
   }
@@ -3669,6 +3676,18 @@ body::after {
   .services-sm__body {
     grid-template-columns: 1fr
   }
+  .services-sm__body--cs:not(:last-child) {
+    margin-bottom: 3.1875rem
+  }
+  .services-sm__text--cs:not(:last-child) {
+    margin-bottom: .75rem
+  }
+  .services-sm__text--cs h2:not(:last-child) {
+    margin-bottom: .5rem
+  }
+  .services-sm__links {
+    gap: .4375rem
+  }
   .services-sm__link {
     font-size: 1rem
   }
@@ -3682,11 +3701,14 @@ body::after {
     font-size: 1rem
   }
   .catalog-sm__text:not(:last-child) {
-    margin-bottom: 1.5625rem
+    margin-bottom: 1.875rem
   }
   .catalog-sm__image {
     width: 2.375rem;
     height: 3.3125rem
+  }
+  .categories-sm__title {
+    line-height: 1.18
   }
   .categories-sm__title:not(:last-child) {
     margin-bottom: 2.375rem
@@ -3714,14 +3736,15 @@ body::after {
   .about-sm__title {
     font-size: 1.75rem;
     text-align: left;
-    line-height: 1.2
+    line-height: 1.2;
+    max-width: 15.9375rem
   }
   .about-sm__body {
     gap: 1.875rem
   }
   .about-sm__decor {
-    -webkit-transform: translate(-1.25rem,calc(1.2% + 1.6875rem));
-    transform: translate(-1.25rem,calc(1.2% + 1.6875rem))
+    -webkit-transform: translate(-1.25rem,calc(2% + 1.6875rem));
+    transform: translate(-1.25rem,calc(2% + 1.6875rem))
   }
   .item-about-sm__image:not(:last-child) {
     margin-bottom: 1rem
@@ -3740,17 +3763,27 @@ body::after {
     gap: .625rem
   }
   .item-about-sm__text {
-    font-size: 1rem
+    font-size: 1rem;
+    line-height: 1.75
   }
   .contacts-services-sm__title {
-    line-height: 1.3
+    line-height: 1.18
+  }
+  .contacts-services-sm__title:not(:last-child) {
+    margin-bottom: .8125rem
   }
   .contacts-services-sm__label {
     font-size: 1rem;
     line-height: 1.75
   }
   .contacts-services-sm__label:not(:last-child) {
-    margin-bottom: 1.5625rem
+    margin-bottom: 1.4375rem
+  }
+  .contacts-services-sm__form {
+    padding-right: 1.25rem
+  }
+  .contacts-services-sm__form .form-contacts__items:not(:last-child) {
+    margin-bottom: 1.125rem
   }
   .about-us__text h2:not(:last-child) {
     margin-bottom: .4375rem
@@ -4271,7 +4304,7 @@ body::after {
   .select__option:hover {
     background: #f3f3f3
   }
-  .footer__credits>a:hover,
+  .footer__credits a:hover,
   .text-link:hover {
     text-decoration-color: inherit
   }
