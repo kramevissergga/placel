@@ -3742,9 +3742,9 @@
                 pagination: false,
                 gap: "3rem",
                 breakpoints: {
-                    991.98: {
-                        gap: "1.25rem",
+                    767.98: {
                         perPage: 2,
+                        gap: "1.25rem",
                         padding: {
                             right: "4.6875rem"
                         }

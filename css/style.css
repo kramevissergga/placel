@@ -3432,7 +3432,7 @@ body::after {
     padding-bottom: 2.625rem
   }
   .section-bg__body--values {
-    padding-bottom: 1.8125rem
+    padding-bottom: 1.875rem
   }
   .header__cart {
     width: 2.9375rem;
@@ -3795,7 +3795,7 @@ body::after {
     margin-bottom: .5625rem
   }
   .about-us__text:not(:last-child) {
-    margin-bottom: .75rem
+    margin-bottom: 1.125rem
   }
   .about-us__video:not(:last-child) {
     margin-bottom: 1.25rem
@@ -3805,6 +3805,9 @@ body::after {
     margin-right: -1.25rem;
     aspect-ratio: 375/252;
     border-radius: 0
+  }
+  .about-us__slider:not(:first-child) {
+    margin-top: 1.5625rem
   }
   .item-about__image:not(:last-child) {
     margin-bottom: 1.3125rem

@@ -6,8 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?_v=20241114144451" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20241114144451">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?_v=20241114191643" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20241114191643">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -885,377 +885,380 @@
 			<div data-count="18" class="footer__decor">
 				<div class="footer__decor-item"></div>
 			</div>
-		</footer>
-	</div>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClqFtYyV6tblkFr8PUcCrUMTyVRN8byu8&_v=20240719151454" async defer></script>
-	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js?_v=20241114144451" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-	<script src="https://unpkg.com/leaflet.gridlayer.googlemutant@latest/dist/Leaflet.GoogleMutant.js?_v=20241114144451"></script>
-	<script src="https://unpkg.com/leaflet-gesture-handling?_v=20241114144451"></script>
-	<script>
-		window.addEventListener('load', function() {
-			let isMobileScreen = window.innerWidth <= 768;
-			if (document.getElementById("map")) {
-				var map = L.map("map", {
-					center: !isMobileScreen ?
-						[63.430755289491145, 17.231663908757707] :
-						[45.23778897310703, 14.132800698280336],
-					zoom: 3,
-					minZoom: 3,
-					zoomControl: false,
-					tap: false,
-					maxBounds: [
-						[110, -210],
-						[-110, 210],
-					],
-					maxBoundsViscosity: 1.0,
-					gestureHandling: true,
-				});
-				var markers = [{
-						coords: [53.41988920082695, 22.962430526782214], // координати Польщі
-						color: "#dd3d3d",
-						text: "Poland",
-						popupContent: `
-        <h4>Europe Headquarters</h4>
-        <span style="color: #dd3d3d " class="name _icon-ch-right">Poland</span><br>
-        Plasel Poland <br>
-        Address details here<br>
-        Tel: <a href="tel:497543934499">+49-7543934499</a><br>
-        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
-    `,
-					},
-					{
-						coords: [35.9078, 127.7669],
-						color: "#dd3d3d",
-						text: "S. Korea",
-						popupContent: `
-        <h4>Asia Headquarters</h4>
-        <span style="color: #dd3d3d " class="name _icon-ch-right">S. Korea</span><br>
-        Plasel South Korea <br>
-        Address details here<br>
-        Tel: <a href="tel:497543934499">+49-7543934499</a><br>
-        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
-    `,
-					},
-					{
-						coords: [37.7749, -122.4194],
-						color: "#dd3d3d",
-						text: "US West<br>Coast",
-						popupContent: `
-        <h4>US West Coast Headquarters</h4>
-        <span style="color: #dd3d3d " class="name _icon-ch-right">US West Coast</span><br>
-        Plasel USA West Coast <br>
-        Address details here<br>
-        Tel: <a href="tel:497543934499">+49-7543934499</a><br>
-        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
-    `,
-					},
-					{
-						coords: [39.8283, -98.5795],
-						color: "#dd3d3d",
-						text: "US, Canada<br>& Mexico",
-						popupContent: `
-        <h4>North America Headquarters</h4>
-        <span style="color: #dd3d3d " class="name _icon-ch-right">US, Canada & Mexico</span><br>
-        Plasel North America <br>
-        Address details here<br>
-        Tel: <a href="tel:497543934499">+49-7543934499</a><br>
-        Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-        Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-        <a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
-    `,
-					},
-					{
-						coords: [49.69308947170579, 9.64700094662242],
-						color: "#dd3d3d",
-						text: "Germany",
-						popupContent: `
-                <h4>Europe Headquarters</h4>
-                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
-                Plasel Deutschland GmbH <br>
-                Dr. Klein 10 Str. 17, 88069 Tettnang<br>
-                Eori number - DE 7068115<br>
-                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-                Fax: <a href="tel:497543934499">+49-7543934499</a><br>
-                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
-            `,
-					},
-					{
-						coords: [41.9028, 12.4964],
-						color: "#dd3d3d",
-						text: "Italy",
-						popupContent: `
-                <h4>Europe Headquarters</h4>
-                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
-                Plasel Deutschland GmbH <br>
-                Dr. Klein 10 Str. 17, 88069 Tettnang<br>
-                Eori number - DE 7068115<br>
-                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-                Fax: <a href="tel:497543934499">+49-7543934499</a><br>
-                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
-            `,
-					},
-					{
-						coords: [31.0461, 34.8516],
-						color: "#219cbb",
-						text: "Israel",
-						popupContent: `
-                <h4>Europe Headquarters</h4>
-                <span style="color: #219cbb " class="name _icon-ch-right">Germany</span><br>
-                Plasel Deutschland GmbH <br>
-                Dr. Klein 10 Str. 17, 88069 Tettnang<br>
-                Eori number - DE 7068115<br>
-                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-                Fax: <a href="tel:497543934499">+49-7543934499</a><br>
-                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
-            `,
-					},
-					{
-						coords: [35.8617, 104.1954],
-						color: "#dd3d3d",
-						text: "China",
-						popupContent: `
-                <h4>Europe Headquarters</h4>
-                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
-                Plasel Deutschland GmbH <br>
-                Dr. Klein 10 Str. 17, 88069 Tettnang<br>
-                Eori number - DE 7068115<br>
-                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-                Fax: <a href="tel:497543934499">+49-7543934499</a><br>
-                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
-            `,
-					},
-					{
-						coords: [20.5937, 78.9629],
-						color: "#dd3d3d",
-						text: "India",
-						popupContent: `
-                <h4>Europe Headquarters</h4>
-                <span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
-                Plasel Deutschland GmbH <br>
-                Dr. Klein 10 Str. 17, 88069 Tettnang<br>
-                Eori number - DE 7068115<br>
-                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-                Fax: <a href="tel:497543934499">+49-7543934499</a><br>
-                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
-            `,
-					},
-					{
-						coords: [14.0583, 108.2772],
-						color: "#556c76",
-						text: "Vietnam",
-						popupContent: `
-                <h4>Europe Headquarters</h4>
-                <span style="color: #556c76 " class="name _icon-ch-right">Germany</span><br>
-                Plasel Deutschland GmbH <br>
-                Dr. Klein 10 Str. 17, 88069 Tettnang<br>
-                Eori number - DE 7068115<br>
-                Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
-                Fax: <a href="tel:497543934499">+49-7543934499</a><br>
-                Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
-                <a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
-            `,
-					},
-				];
+		</footer>;
+		var markers = [
+		{
+		coords: [53.41988920082695, 22.962430526782214], // координати Польщі
+		color: "#dd3d3d",
+		text: "Poland",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">Poland</span><br>
+		Plasel Poland <br>
+		Address details here<br>
+		Tel: <a href="tel:497543934499">+49-7543934499</a><br>
+		Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
+		`,
+		},
+		{
+		coords: [35.9078, 127.7669],
+		color: "#dd3d3d",
+		text: "S. Korea",
+		popupContent: `
+		<h4>Asia Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">S. Korea</span><br>
+		Plasel South Korea <br>
+		Address details here<br>
+		Tel: <a href="tel:497543934499">+49-7543934499</a><br>
+		Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
+		`,
+		},
+		{
+		coords: [37.7749, -122.4194],
+		color: "#dd3d3d",
+		text: "US West<br>Coast",
+		popupContent: `
+		<h4>US West Coast Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">US West Coast</span><br>
+		Plasel USA West Coast <br>
+		Address details here<br>
+		Tel: <a href="tel:497543934499">+49-7543934499</a><br>
+		Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
+		`,
+		},
+		{
+		coords: [39.8283, -98.5795],
+		color: "#dd3d3d",
+		text: "US, Canada<br>& Mexico",
+		popupContent: `
+		<h4>North America Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">US, Canada & Mexico</span><br>
+		Plasel North America <br>
+		Address details here<br>
+		Tel: <a href="tel:497543934499">+49-7543934499</a><br>
+		Fax: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plasel.com">www.plasel.com</a>
+		`,
+		},
+		{
+		coords: [49.69308947170579, 9.64700094662242],
+		color: "#dd3d3d",
+		text: "Germany",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
+		Plasel Deutschland GmbH <br>
+		Dr. Klein 10 Str. 17, 88069 Tettnang<br>
+		Eori number - DE 7068115<br>
+		Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Fax: <a href="tel:497543934499">+49-7543934499</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
+		`,
+		},
+		{
+		coords: [41.9028, 12.4964],
+		color: "#dd3d3d",
+		text: "Italy",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
+		Plasel Deutschland GmbH <br>
+		Dr. Klein 10 Str. 17, 88069 Tettnang<br>
+		Eori number - DE 7068115<br>
+		Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Fax: <a href="tel:497543934499">+49-7543934499</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
+		`,
+		},
+		{
+		coords: [31.0461, 34.8516],
+		color: "#219cbb",
+		text: "Israel",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #219cbb " class="name _icon-ch-right">Germany</span><br>
+		Plasel Deutschland GmbH <br>
+		Dr. Klein 10 Str. 17, 88069 Tettnang<br>
+		Eori number - DE 7068115<br>
+		Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Fax: <a href="tel:497543934499">+49-7543934499</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
+		`,
+		},
+		{
+		coords: [35.8617, 104.1954],
+		color: "#dd3d3d",
+		text: "China",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
+		Plasel Deutschland GmbH <br>
+		Dr. Klein 10 Str. 17, 88069 Tettnang<br>
+		Eori number - DE 7068115<br>
+		Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Fax: <a href="tel:497543934499">+49-7543934499</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
+		`,
+		},
+		{
+		coords: [20.5937, 78.9629],
+		color: "#dd3d3d",
+		text: "India",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #dd3d3d " class="name _icon-ch-right">Germany</span><br>
+		Plasel Deutschland GmbH <br>
+		Dr. Klein 10 Str. 17, 88069 Tettnang<br>
+		Eori number - DE 7068115<br>
+		Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Fax: <a href="tel:497543934499">+49-7543934499</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
+		`,
+		},
+		{
+		coords: [14.0583, 108.2772],
+		color: "#556c76",
+		text: "Vietnam",
+		popupContent: `
+		<h4>Europe Headquarters</h4>
+		<span style="color: #556c76 " class="name _icon-ch-right">Germany</span><br>
+		Plasel Deutschland GmbH <br>
+		Dr. Klein 10 Str. 17, 88069 Tettnang<br>
+		Eori number - DE 7068115<br>
+		Tel: <a href="tel:4975429804570">+49-7542-9804570</a><br>
+		Fax: <a href="tel:497543934499">+49-7543934499</a><br>
+		Email: <a href="mailto:info@plasel.com">info@plasel.com</a><br>
+		<a target="_blank" href="http://www.plaselplastic.de">www.plaselplastic.de</a>
+		`,
+		},
+		];
 
-				function createSvgIcon(color, circleFill = false) {
-					return `
-      <svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36" fill="none">
-<circle cx="14" cy="14" r="11" fill="${!circleFill ? "white" : "transparent"}"/>
-<g clip-path="url(#clip0_9_211)">
-<path d="M13.4626 20.3267C9.83721 20.3267 6.88081 17.3255 6.88081 13.6535C6.88081 9.98147 9.84095 6.98021 13.4626 6.98021C17.0843 6.98021 20.0444 9.98147 20.0444 13.6535C20.0444 17.3255 17.0843 20.3267 13.4626 20.3267ZM13.4626 0C6.06603 0 0 6.15032 0 13.6497C0 21.1491 12.4273 35.1739 12.9468 35.7764C13.0926 35.928 13.3131 36 13.5374 36C13.7616 36 13.9074 35.9242 14.0569 35.7764C14.5764 35.1777 27.0037 21.0013 27.0037 13.6497C26.9253 6.15032 20.8592 0 13.4626 0Z" fill="${color}"/>
-</g>
-<defs>
-<clipPath id="clip0_9_211">
-<rect width="27" height="36" fill="${!circleFill ? "white" : "transparent"}"/>
-</clipPath>
-</defs>
-</svg>
+		function createSvgIcon(color, circleFill = false) {
+		return `
+		<svg xmlns="http://www.w3.org/2000/svg" width="27" height="36" viewBox="0 0 27 36" fill="none">
+			<circle cx="14" cy="14" r="11" fill="${!circleFill ? " white" : "transparent" }" />
+			<g clip-path="url(#clip0_9_211)">
+				<path d="M13.4626 20.3267C9.83721 20.3267 6.88081 17.3255 6.88081 13.6535C6.88081 9.98147 9.84095 6.98021 13.4626 6.98021C17.0843 6.98021 20.0444 9.98147 20.0444 13.6535C20.0444 17.3255 17.0843 20.3267 13.4626 20.3267ZM13.4626 0C6.06603 0 0 6.15032 0 13.6497C0 21.1491 12.4273 35.1739 12.9468 35.7764C13.0926 35.928 13.3131 36 13.5374 36C13.7616 36 13.9074 35.9242 14.0569 35.7764C14.5764 35.1777 27.0037 21.0013 27.0037 13.6497C26.9253 6.15032 20.8592 0 13.4626 0Z" fill="${color}" />
+			</g>
+			<defs>
+				<clipPath id="clip0_9_211">
+					<rect width="27" height="36" fill="${!circleFill ? " white" : "transparent" }" />
+				</clipPath>
+			</defs>
+		</svg>
 
-  `;
-				}
+		`;
+		}
 
-				var iconWidth = 35;
-				var iconHeight = 45;
-				if (isMobileScreen) {
-					iconWidth = 27;
-					iconHeight = 36;
-				}
-				var popupOffsetY = -(iconHeight / 2);
-				var mobilePane = map.createPane(
-					"mobile-popup",
-					document.getElementById("map")
-				);
-				mobilePane.style.zIndex = 400;
+		var iconWidth = 35;
+		var iconHeight = 45;
+		if (isMobileScreen) {
+		iconWidth = 27;
+		iconHeight = 36;
+		}
+		var popupOffsetY = -(iconHeight / 2);
+		var mobilePane = map.createPane(
+		"mobile-popup",
+		document.getElementById("map")
+		);
+		mobilePane.style.zIndex = 400;
 
-				markers.forEach(function(marker) {
-					var icon = L.divIcon({
-						className: "custom-marker",
-						html: `<span style="color: ${marker.color};">${marker.text}</span>${createSvgIcon(marker.color, true)}`,
-						iconAnchor: [iconWidth / 2, iconHeight],
-						iconSize: [iconWidth, iconHeight],
-					});
-
-					var mapMarker = L.marker(marker.coords, {
-							icon: icon
-						})
-						.addTo(map)
-						.bindPopup(marker.popupContent + createSvgIcon(marker.color), {
-							className: "custom-popup",
-							pane: isMobileScreen ? "mobile-popup" : "popupPane",
-							autoPan: !isMobileScreen,
-							offset: L.point(120, popupOffsetY),
-						});
-
-					mapMarker.on("popupopen", function() {
-						var popup = mapMarker.getPopup();
-						var popupElement = popup.getElement();
-						if (popupElement) {
-							var popupHeight = popupElement.offsetHeight;
-							var popupWidth = popupElement.offsetWidth;
-							popup.options.offset = L.point(popupWidth / 2, popupHeight / 2 - 3);
-							popup.update();
-						}
-					});
-				});
-
-				L.gridLayer
-					.googleMutant({
-						type: "roadmap",
-						noWrap: true,
-						styles: [{
-								featureType: "administrative",
-								elementType: "labels",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "administrative",
-								elementType: "geometry",
-								stylers: [{
-									visibility: "off"
-								}],
-							},
-							{
-								featureType: "administrative.country",
-								elementType: "geometry.stroke",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "administrative.province",
-								elementType: "geometry.stroke",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "landscape",
-								elementType: "geometry",
-								stylers: [{
-										visibility: "on",
-									},
-									{
-										color: "#cccccc",
-									},
-								],
-							},
-							{
-								featureType: "landscape.natural",
-								elementType: "labels",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "poi",
-								elementType: "all",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "road",
-								elementType: "all",
-								stylers: [{
-									color: "#cccccc",
-								}, ],
-							},
-							{
-								featureType: "road",
-								elementType: "labels",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "transit",
-								elementType: "labels.icon",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "transit.line",
-								elementType: "geometry",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "transit.line",
-								elementType: "labels.text",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "transit.station.airport",
-								elementType: "geometry",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "transit.station.airport",
-								elementType: "labels",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-							{
-								featureType: "water",
-								elementType: "geometry",
-								stylers: [{
-									color: "#FFFFFF",
-								}, ],
-							},
-							{
-								featureType: "water",
-								elementType: "labels",
-								stylers: [{
-									visibility: "off",
-								}, ],
-							},
-						],
-					})
-					.addTo(map);
-			}
+		markers.forEach(function (marker) {
+		var icon = L.divIcon({
+		className: "custom-marker",
+		html: `<span style="color: ${marker.color};">${marker.text}</span>${createSvgIcon(marker.color, true)}`,
+		iconAnchor: [iconWidth / 2, iconHeight],
+		iconSize: [iconWidth, iconHeight],
 		});
-	</script>
-	<script src="js/app.min.js?_v=20241114144451"></script>
+
+		var mapMarker = L.marker(marker.coords, { icon: icon })
+		.addTo(map)
+		.bindPopup(marker.popupContent + createSvgIcon(marker.color), {
+		className: "custom-popup",
+		pane: isMobileScreen ? "mobile-popup" : "popupPane",
+		autoPan: !isMobileScreen,
+		offset: L.point(120, popupOffsetY),
+		});
+
+		mapMarker.on("popupopen", function () {
+		var popup = mapMarker.getPopup();
+		var popupElement = popup.getElement();
+		if (popupElement) {
+		var popupHeight = popupElement.offsetHeight;
+		var popupWidth = popupElement.offsetWidth;
+		popup.options.offset = L.point(popupWidth / 2, popupHeight / 2 - 3);
+		popup.update();
+		}
+		});
+		});
+
+		L.gridLayer
+		.googleMutant({
+		type: "roadmap",
+		noWrap: true,
+		styles: [
+		{
+		featureType: "administrative",
+		elementType: "labels",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "administrative",
+		elementType: "geometry",
+		stylers: [{ visibility: "off" }],
+		},
+		{
+		featureType: "administrative.country",
+		elementType: "geometry.stroke",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "administrative.province",
+		elementType: "geometry.stroke",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "landscape",
+		elementType: "geometry",
+		stylers: [
+		{
+		visibility: "on",
+		},
+		{
+		color: "#cccccc",
+		},
+		],
+		},
+		{
+		featureType: "landscape.natural",
+		elementType: "labels",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "poi",
+		elementType: "all",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "road",
+		elementType: "all",
+		stylers: [
+		{
+		color: "#cccccc",
+		},
+		],
+		},
+		{
+		featureType: "road",
+		elementType: "labels",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "transit",
+		elementType: "labels.icon",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "transit.line",
+		elementType: "geometry",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "transit.line",
+		elementType: "labels.text",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "transit.station.airport",
+		elementType: "geometry",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "transit.station.airport",
+		elementType: "labels",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		{
+		featureType: "water",
+		elementType: "geometry",
+		stylers: [
+		{
+		color: "#FFFFFF",
+		},
+		],
+		},
+		{
+		featureType: "water",
+		elementType: "labels",
+		stylers: [
+		{
+		visibility: "off",
+		},
+		],
+		},
+		],
+		})
+		.addTo(map);
+		}
+		});
+		</script>
+		<script src="js/app.min.js?_v=20241114191643"></script>
 </body>
 
 </html>
