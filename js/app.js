@@ -3734,6 +3734,27 @@
                 }
             }).mount();
         }));
+        const aboutSliders = document.querySelectorAll(".about-us__slider");
+        if (aboutSliders.length) aboutSliders.forEach((aboutSlider => {
+            new Splide(aboutSlider, {
+                perPage: 3,
+                arrows: false,
+                pagination: false,
+                gap: "3rem",
+                breakpoints: {
+                    991.98: {
+                        gap: "1.25rem",
+                        perPage: 2,
+                        padding: {
+                            right: "4.6875rem"
+                        }
+                    },
+                    599.98: {
+                        perPage: 1
+                    }
+                }
+            }).mount();
+        }));
     }));
     function isObject_isObject(value) {
         var type = typeof value;
@@ -4853,8 +4874,8 @@
             behavior: "smooth"
         });
         if (isPlayBtn) {
-            const videoButton = event.target.closest(".video-section__play-btn");
-            const videoBody = videoButton.closest(".video-section__video");
+            const videoButton = event.target.closest(".video-block__play-btn");
+            const videoBody = videoButton.closest(".video-block");
             if (videoBody && !videoButton.dataset.popup) {
                 const codeVideo = videoButton.dataset.popupYoutube;
                 console.log(codeVideo);
