@@ -2002,7 +2002,6 @@ body::after {
 }
 .text-sm img {
   border-radius: 1.25rem 0 1.25rem 0;
-  aspect-ratio: 773/410;
   width: 100%;
   max-width: 48.3125rem;
   -o-object-fit: cover;
@@ -3660,9 +3659,6 @@ body::after {
   .text-sm p {
     font-size: 1rem;
     line-height: 1.75
-  }
-  .text-sm img {
-    aspect-ratio: 335/250
   }
   .text-sm img:not(:first-child) {
     margin-top: .4375rem
