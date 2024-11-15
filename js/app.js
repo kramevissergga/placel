@@ -3741,15 +3741,17 @@
                 arrows: false,
                 pagination: false,
                 gap: "3rem",
+                destroy: true,
                 breakpoints: {
                     767.98: {
+                        destroy: false,
                         perPage: 2,
                         gap: "1.25rem",
                         padding: {
                             right: "4.6875rem"
                         }
                     },
-                    599.98: {
+                    475.98: {
                         perPage: 1
                     }
                 }

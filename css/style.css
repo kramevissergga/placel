@@ -2947,6 +2947,11 @@ body::after {
     max-width: 37.1875rem;
     margin-left: 1.5625rem
   }
+  .about-us__slider .splide__list {
+    display: grid!important;
+    grid-template-columns: repeat(3,1fr);
+    gap: 3rem
+  }
 }
 @media (min-width:61.99875em) {
   .decor-contacts__image {
