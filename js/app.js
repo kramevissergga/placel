@@ -3758,6 +3758,33 @@
             }).mount();
         }));
     }));
+    const productSliders = document.querySelectorAll(".product__sliders");
+    if (productSliders.length) productSliders.forEach((sliderWrapper => {
+        const mainSlider = sliderWrapper.querySelector(".product__main-slider");
+        const thumbnailSlider = sliderWrapper.querySelector(".product__thumbnail-slider");
+        if (mainSlider && thumbnailSlider) {
+            const mainSplide = new Splide(mainSlider, {
+                type: "fade",
+                perPage: 1,
+                pagination: false,
+                arrows: true,
+                breakpoints: {
+                    767.98: {
+                        arrows: false,
+                        pagination: true
+                    }
+                }
+            }).mount();
+            const thumbSplide = new Splide(thumbnailSlider, {
+                isNavigation: true,
+                perPage: 5,
+                gap: "1.375rem",
+                pagination: false,
+                arrows: false
+            }).mount();
+            mainSplide.sync(thumbSplide);
+        }
+    }));
     function isObject_isObject(value) {
         var type = typeof value;
         return value != null && (type == "object" || type == "function");
