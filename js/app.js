@@ -3765,6 +3765,7 @@
         if (mainSlider && thumbnailSlider) {
             const mainSplide = new Splide(mainSlider, {
                 type: "fade",
+                rewind: true,
                 perPage: 1,
                 pagination: false,
                 arrows: true,

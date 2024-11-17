@@ -475,11 +475,6 @@ body::after {
   -o-object-fit: contain;
   object-fit: contain
 }
-.product__thumbnail-slider .splide__slide {
-  transition: all .3s ease 0s;
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1)
-}
 .footer__up::before,
 .header__cart {
   display: flex;
@@ -2352,21 +2347,22 @@ body::after {
 }
 .product__thumbnail-slider .splide__slide {
   aspect-ratio: 110/89;
+  transition: all .3s
+}
+.product__thumbnail-slider .splide__slide>* {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
   background-color: #eceeef;
   transition: -webkit-filter .3s;
   transition: filter .3s;
-  transition: filter .3s,-webkit-filter .3s;
-  border: none!important
+  transition: filter .3s,-webkit-filter .3s
 }
 .product__thumbnail-slider .splide__slide.is-active {
-  -webkit-filter: grayscale(0);
-  filter: grayscale(0);
-  -webkit-transform: none!important;
-  transform: none!important
+  border-color: var(--page-color,#dd3d3d)!important
 }
-.product__thumbnail-slider:has(.splide__slide:not(.splide__slide.is-active):hover) .splide__slide.is-active {
-  -webkit-filter: grayscale(1);
-  filter: grayscale(1)
+.product__thumbnail-slider .splide__slide.is-active>* {
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0)
 }
 .product__video {
   border-radius: 0;
@@ -4763,10 +4759,6 @@ body::after {
   .select__option:hover {
     background: #f3f3f3
   }
-  .product__thumbnail-slider .splide__slide:hover {
-    -webkit-filter: grayscale(0);
-    filter: grayscale(0)
-  }
   .footer__credits a:hover,
   .text-link:hover {
     text-decoration-color: inherit
@@ -4896,6 +4888,9 @@ body::after {
   }
   .product__main-slider .splide__arrow:hover svg path {
     fill: var(--page-color,#dd3d3d)
+  }
+  .product__thumbnail-slider .splide__slide:hover {
+    border-color: var(--page-color,#dd3d3d)!important
   }
   .product__button:not(:disabled):hover {
     background-color: #dd3d3d;
