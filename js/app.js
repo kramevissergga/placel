@@ -4872,38 +4872,47 @@
         const langHeaderWrapper = langHeader.querySelector(".lang-header__wrapper");
         _slideUp(langHeaderWrapper, 0, "horizontal");
         langHeaderBody.addEventListener("click", (() => {
-            _slideToggle(langHeaderWrapper, 300, "horizontal");
-            langHeader.classList.toggle("_active");
+            if (!langHeaderWrapper.classList.contains("_slide")) {
+                _slideToggle(langHeaderWrapper, 300, "horizontal");
+                langHeader.classList.toggle("_active");
+            }
         }));
     }));
     let isSmallScreen = window.innerWidth <= 599.98;
     window.addEventListener("resize", (() => {
         isSmallScreen = window.innerWidth <= 599.98;
     }));
+    function clearTooltips(excentionEl = null) {
+        var toolTipWrappers = document.querySelectorAll("[data-tooltip]._active");
+        if (toolTipWrappers) toolTipWrappers.forEach((colorItem => {
+            colorItem != excentionEl ? colorItem.classList.remove("_active") : null;
+        }));
+    }
     document.addEventListener("click", (event => {
-        const isMenuOpenButton = event.target.closest("[data-menu-open]");
-        const isMenuCloseButton = event.target.closest("[data-menu-close]");
-        const isOutsideMenu = !event.target.closest(".mobile-menu");
-        const isSearchOpenBtn = event.target.closest("[data-search-open]");
-        const isSearchCloseBtn = event.target.closest("[data-search-close]");
-        const isGoBackBtn = event.target.closest("[data-go-back]");
-        const isPlayBtn = event.target.closest("[data-yt]");
-        if (isMenuOpenButton) {
+        const menuOpenButton = event.target.closest("[data-menu-open]");
+        const menuCloseButton = event.target.closest("[data-menu-close]");
+        const outsideMenu = !event.target.closest(".mobile-menu");
+        const searchOpenBtn = event.target.closest("[data-search-open]");
+        const searchCloseBtn = event.target.closest("[data-search-close]");
+        const goBackBtn = event.target.closest("[data-go-back]");
+        const playBtn = event.target.closest("[data-yt]");
+        const toolTipWrapper = event.target.closest("[data-tooltip]");
+        if (menuOpenButton) {
             document.documentElement.classList.toggle("menu-open");
             if (isSmallScreen) bodyLockToggle(0);
-        } else if (isMenuCloseButton) {
+        } else if (menuCloseButton) {
             document.documentElement.classList.remove("menu-open");
             if (isSmallScreen && isBodyLocked) bodyUnlock(0);
-        } else if (isOutsideMenu) {
+        } else if (outsideMenu) {
             document.documentElement.classList.remove("menu-open");
             if (isSmallScreen && isBodyLocked) bodyUnlock(0);
         }
-        if (isSearchOpenBtn) document.documentElement.classList.toggle("search-open"); else if (isSearchCloseBtn) document.documentElement.classList.remove("search-open");
-        if (isGoBackBtn) window.scrollTo({
+        if (searchOpenBtn) document.documentElement.classList.toggle("search-open"); else if (searchCloseBtn) document.documentElement.classList.remove("search-open");
+        if (goBackBtn) window.scrollTo({
             top: 0,
             behavior: "smooth"
         });
-        if (isPlayBtn) {
+        if (playBtn) {
             const videoButton = event.target.closest(".video-block__play-btn");
             const videoBody = videoButton.closest(".video-block");
             if (videoBody && !videoButton.dataset.popup) {
@@ -4918,6 +4927,10 @@
                 videoBody.appendChild(iframe);
             }
         }
+        if (toolTipWrapper) {
+            !window.matchMedia("(any-hover: hover)").matches ? toolTipWrapper.classList.toggle("_active") : null;
+            clearTooltips(toolTipWrapper);
+        } else if (!toolTipWrapper) clearTooltips();
     }));
     const decorContainer = document.querySelector(".footer__decor");
     const firstDecorItem = decorContainer ? decorContainer.querySelector(".footer__decor-item") : null;

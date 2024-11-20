@@ -6,8 +6,8 @@
 	<meta charset="UTF-8">
 	<meta name="format-detection" content="telephone=no">
 	<!-- <style>body{opacity: 0;}</style> -->
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?_v=20241118012134" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-	<link rel="stylesheet" href="css/style.min.css?_v=20241118012134">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?_v=20241121003334" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20241121003334">
 	<link rel="shortcut icon" href="favicon.ico">
 	<!-- <meta name="robots" content="noindex, nofollow"> -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -217,7 +217,7 @@
 								</div>
 								<div class="product__content">
 									<h2 class="product__title">
-										NTP - New Tool Pack
+										New Tool Pack
 									</h2>
 									<div class="product__body">
 										<div class="product__sliders">
@@ -296,7 +296,7 @@
 										<div class="product__wrapper">
 											<div class="product__info">
 												<div data-da="{.product__content}, 991.98, first" class="product__labels">
-													<div class="product__label label-product">
+													<div data-tooltip class="product__label label-product">
 														<div class="label-product__body">
 															<img src="img/product/labels/01.svg" alt="Image" class="label-product__image">
 														</div>
@@ -304,7 +304,7 @@
 															Recycled plastic
 														</div>
 													</div>
-													<div class="product__label label-product">
+													<div data-tooltip class="product__label label-product">
 														<div class="label-product__body">
 															<img src="img/product/labels/02.svg" alt="Image" class="label-product__image">
 														</div>
@@ -349,13 +349,20 @@
 												<div class="product__block-action">
 													<h4>Available Colors <span>(for Plug & Cap)</span></h4>
 													<div class="product__colors">
+														<div class="product__color color-product">
+															<div class="color-product__image">
+																<img src="img/product/colors/transparent.svg" alt="Image" class="ibg">
+															</div>
+														</div>
+														<div style="background-color: #FFF;" class="product__color color-product color-product--border">
+														</div>
 														<div style="background-color: #000;" class="product__color color-product">
 														</div>
 														<div style="background-color: #DD3D3D;" class="product__color color-product">
 														</div>
 														<div style="background-color: #219CBB;" class="product__color color-product">
 														</div>
-														<div class="product__color color-product">
+														<div data-tooltip class="product__color color-product">
 															<div class="color-product__image">
 																<img src="img/product/colors/recycle.svg" alt="Image" class="ibg">
 															</div>
@@ -371,7 +378,7 @@
 														</div>
 													</div>
 												</div>
-												<div class="product__block-action">
+												<div class="product__block-action product__block-action--sm-pd">
 													<h4>Downloads</h4>
 													<div class="product__files files-product">
 														<a href="#" class="files-product__link">
@@ -953,7 +960,7 @@
 		</footer>
 	</div>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClqFtYyV6tblkFr8PUcCrUMTyVRN8byu8&_v=20240719151454" async defer></script>
-	<script src="js/app.min.js?_v=20241118012134"></script>
+	<script src="js/app.min.js?_v=20241121003334"></script>
 </body>
 
 </html>
