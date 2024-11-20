@@ -302,6 +302,7 @@ input[type=search] {
   top: calc(100% + .46875rem);
   min-width: 100%;
   left: 0;
+  z-index: 5!important;
   background-color: #fff;
   border-radius: 1.5625rem;
   border: .0625rem solid #dd3d3d;
@@ -2068,8 +2069,7 @@ body::after {
 }
 .catalog-sm {
   background-color: rgba(69,90,100,.102);
-  padding: 1.75rem;
-  transition: background-color .3s
+  padding: 1.75rem
 }
 .catalog-sm__title:not(:last-child) {
   margin-bottom: .5625rem
@@ -2080,10 +2080,22 @@ body::after {
 .catalog-sm__text:not(:last-child) {
   margin-bottom: 3.75rem
 }
-.catalog-sm__image {
+.catalog-sm__links {
+  padding-left: .1875rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .625rem
+}
+.catalog-sm__link {
   height: 4.6875rem;
   width: 3.4375rem;
-  margin-left: .1875rem
+  flex-shrink: 0
+}
+.catalog-sm__link img {
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s,-webkit-transform .3s;
+  will-change: transform
 }
 .categories-sm {
   display: flex;
@@ -4053,7 +4065,7 @@ body::after {
   .catalog-sm__text:not(:last-child) {
     margin-bottom: 1.875rem
   }
-  .catalog-sm__image {
+  .catalog-sm__link {
     width: 2.375rem;
     height: 3.3125rem
   }
@@ -4876,8 +4888,9 @@ body::after {
   .services-sm__link:hover {
     text-decoration-color: transparent
   }
-  .catalog-sm:hover {
-    background-color: rgba(69,90,100,.2)
+  .catalog-sm__link:hover img {
+    -webkit-transform: scale(.95);
+    transform: scale(.95)
   }
   .categories-sm__item:hover .categories-sm__label {
     color: var(--page-color,#dd3d3d)
