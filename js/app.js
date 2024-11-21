@@ -3754,7 +3754,7 @@
                     475.98: {
                         perPage: 1,
                         padding: {
-                            right: "7.6875rem"
+                            right: "8.1rem"
                         }
                     },
                     399.98: {
