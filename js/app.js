@@ -3752,7 +3752,15 @@
                         }
                     },
                     475.98: {
-                        perPage: 1
+                        perPage: 1,
+                        padding: {
+                            right: "7.6875rem"
+                        }
+                    },
+                    399.98: {
+                        padding: {
+                            right: "4.6875rem"
+                        }
                     }
                 }
             }).mount();
