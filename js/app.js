@@ -630,6 +630,7 @@
                 classSelectInput: "select__input",
                 classSelectText: "select__text",
                 classSelectLink: "select__link",
+                classSelectOptionsWrapper: "select__options-wrapper",
                 classSelectOptions: "select__options",
                 classSelectOptionsScroll: "select__scroll",
                 classSelectOption: "select__option",
@@ -696,7 +697,7 @@
                     selectItemTitle.insertAdjacentHTML("afterbegin", `<span class="${this.selectClasses.classSelectLabel}">${this.getSelectPlaceholder(originalSelect).label.text ? this.getSelectPlaceholder(originalSelect).label.text : this.getSelectPlaceholder(originalSelect).value}</span>`);
                 }
             }
-            selectItem.insertAdjacentHTML("beforeend", `<div class="${this.selectClasses.classSelectBody}"><div hidden class="${this.selectClasses.classSelectOptions}"></div></div>`);
+            selectItem.insertAdjacentHTML("beforeend", `<div class="${this.selectClasses.classSelectBody}">\n        <div  class="${this.selectClasses.classSelectOptionsWrapper}">\n          <div hidden class="${this.selectClasses.classSelectOptions}"></div>\n      </div>\n      </div>`);
             this.selectBuild(originalSelect);
             originalSelect.dataset.speed = originalSelect.dataset.speed ? originalSelect.dataset.speed : this.config.speed;
             this.config.speed = +originalSelect.dataset.speed;
@@ -711,6 +712,8 @@
             originalSelect.multiple ? selectItem.classList.add(this.selectClasses.classSelectMultiple) : selectItem.classList.remove(this.selectClasses.classSelectMultiple);
             originalSelect.hasAttribute("data-checkbox") && originalSelect.multiple ? selectItem.classList.add(this.selectClasses.classSelectCheckBox) : selectItem.classList.remove(this.selectClasses.classSelectCheckBox);
             this.setSelectTitleValue(selectItem, originalSelect);
+            this.getSelectElement(selectItem, this.selectClasses.classSelectBody).selectElement;
+            this.setOptions(selectItem, originalSelect);
             this.setOptions(selectItem, originalSelect);
             originalSelect.hasAttribute("data-search") ? this.searchActions(selectItem) : null;
             originalSelect.hasAttribute("data-open") ? this.selectAction(selectItem) : null;
@@ -746,6 +749,7 @@
         selectСlose(selectItem) {
             const originalSelect = this.getSelectElement(selectItem).originalSelect;
             const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+            this.getSelectElement(selectItem, this.selectClasses.classSelectOptionsWrapper).selectElement;
             if (!selectOptions.classList.contains("_slide")) {
                 selectItem.classList.remove(this.selectClasses.classSelectOpen);
                 _slideUp(selectOptions, originalSelect.dataset.speed);
@@ -757,6 +761,7 @@
         selectAction(selectItem) {
             const originalSelect = this.getSelectElement(selectItem).originalSelect;
             const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+            this.getSelectElement(selectItem, this.selectClasses.classSelectOptionsWrapper).selectElement;
             const selectOpenzIndex = originalSelect.dataset.zIndex ? originalSelect.dataset.zIndex : 3;
             this.setOptionsPosition(selectItem);
             if (originalSelect.closest("[data-one-select]")) {
@@ -804,7 +809,7 @@
         }
         getSelectElementContent(selectOption) {
             const selectOptionData = selectOption.dataset.asset ? `${selectOption.dataset.asset}` : "";
-            const selectOptionDataHTML = selectOptionData.indexOf("img") >= 0 ? `<img src="${selectOptionData}" alt="">` : selectOptionData;
+            const selectOptionDataHTML = selectOptionData;
             let selectOptionContentHTML = ``;
             selectOptionContentHTML += selectOptionData ? `<span class="${this.selectClasses.classSelectRow}">` : "";
             selectOptionContentHTML += selectOptionData ? `<span class="${this.selectClasses.classSelectData}">` : "";
@@ -843,6 +848,10 @@
             if (selectOptions.length > 0) {
                 let selectOptionsHTML = ``;
                 if (this.getSelectPlaceholder(originalSelect) && !this.getSelectPlaceholder(originalSelect).show || originalSelect.multiple) selectOptions = selectOptions.filter((option => option.value));
+                if (originalSelect.hasAttribute("data-op-label")) {
+                    const labelContent = originalSelect.dataset.opLabel;
+                    selectOptionsHTML += `\n            <div class="select__options-label">\n                ${labelContent}\n            </div>`;
+                }
                 selectOptionsHTML += `<div ${selectOptionsScroll} ${selectOptionsScroll ? `style="height: ${customMaxHeightValue}px"` : ""} class="${this.selectClasses.classSelectOptionsScroll}">`;
                 selectOptions.forEach((selectOption => {
                     selectOptionsHTML += this.getOption(selectOption, originalSelect);
@@ -870,6 +879,7 @@
         setOptionsPosition(selectItem) {
             const originalSelect = this.getSelectElement(selectItem).originalSelect;
             const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+            this.getSelectElement(selectItem, this.selectClasses.classSelectOptionsWrapper).selectElement;
             const selectItemScroll = this.getSelectElement(selectItem, this.selectClasses.classSelectOptionsScroll).selectElement;
             const customMaxHeightValue = +originalSelect.dataset.scroll ? `${+originalSelect.dataset.scroll}px` : ``;
             const selectOptionsPosMargin = +originalSelect.dataset.optionsMargin ? +originalSelect.dataset.optionsMargin : 10;
@@ -900,6 +910,7 @@
         }
         optionAction(selectItem, originalSelect, optionItem) {
             const selectOptions = selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOptions)}`);
+            selectItem.querySelector(`${this.getSelectClass(this.selectClasses.classSelectOptionsWrapper)}`);
             if (!selectOptions.classList.contains("_slide")) {
                 if (originalSelect.multiple) {
                     optionItem.classList.toggle(this.selectClasses.classSelectOptionSelected);
@@ -953,6 +964,7 @@
             this.getSelectElement(selectItem).originalSelect;
             const selectInput = this.getSelectElement(selectItem, this.selectClasses.classSelectInput).selectElement;
             const selectOptions = this.getSelectElement(selectItem, this.selectClasses.classSelectOptions).selectElement;
+            this.getSelectElement(selectItem, this.selectClasses.classSelectOptionsWrapper).selectElement;
             const selectOptionsItems = selectOptions.querySelectorAll(`.${this.selectClasses.classSelectOption} `);
             const _this = this;
             selectInput.addEventListener("input", (function() {
@@ -4954,6 +4966,32 @@
             decorContainer.appendChild(newDecorItem);
         }
     }
+    const numberInputs = document.querySelectorAll(".counter");
+    if (numberInputs) numberInputs.forEach((wrapperInput => {
+        const input = wrapperInput.querySelector("input");
+        const btnPlus = wrapperInput.querySelector(".counter__btn--increment");
+        const btnMinus = wrapperInput.querySelector(".counter__btn--decrement");
+        const min = parseInt(wrapperInput.getAttribute("data-min"));
+        const max = parseInt(wrapperInput.getAttribute("data-max"));
+        const validateInput = () => {
+            let value = parseInt(input.value);
+            if (isNaN(value)) value = min;
+            if (value < min) value = min; else if (value > max) value = max;
+            input.value = value;
+        };
+        btnPlus.addEventListener("click", (function() {
+            let newValue = parseInt(input.value) + 1;
+            if (newValue <= max) input.value = newValue;
+            input.dispatchEvent(new Event("input"));
+        }));
+        btnMinus.addEventListener("click", (function() {
+            let newValue = parseInt(input.value) - 1;
+            if (newValue >= min) input.value = newValue;
+            input.dispatchEvent(new Event("input"));
+        }));
+        input.addEventListener("input", validateInput);
+        input.addEventListener("blur", validateInput);
+    }));
     window["FLS"] = false;
     spoilers();
 })();
