@@ -1,0 +1,2341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Tables</title>
+	<meta charset="UTF-8">
+	<meta name="format-detection" content="telephone=no">
+	<!-- <style>body{opacity: 0;}</style> -->
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css?_v=20241129104800" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+	<link rel="stylesheet" href="css/style.min.css?_v=20241129104800">
+	<link rel="shortcut icon" href="favicon.ico">
+	<!-- <meta name="robots" content="noindex, nofollow"> -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+</head>
+
+<body style="--page-color: #219CBB">
+	<div class="wrapper">
+		<header class="header">
+			<div class="header__container">
+				<a href="#" class="header__logo">
+					<img src="img/logo.svg" alt="Logo" class="ibg ibg--contain">
+				</a>
+				<a href="#" class="header__cart _icon-cart">
+					<span>3</span>
+				</a>
+
+				<div class="header__search">
+					<button data-search-close class="header__search-close _icon-cross-thin"></button>
+					<div class="header__search-field search-field-header">
+						<input type="text" placeholder="Search site" class="search-field-header__input">
+						<button class="search-field-header__button _icon-search-circle"></button>
+					</div>
+				</div>
+				<div class="header__actions">
+					<div data-da=".mobile-menu, 599.98, 1" class="header__lang lang-header">
+						<div class="lang-header__wrapper">
+							<div hidden class="lang-header__options">
+								<a href="#" class="lang-header__option">
+									<img src="img/flags/uk.svg" alt="Flag" class="ibg">
+								</a>
+								<a href="#" class="lang-header__option">
+									<img src="img/flags/germany.svg" alt="Flag" class="ibg">
+								</a>
+							</div>
+						</div>
+						<div class="lang-header__body _icon-ch-right">
+							<div class="lang-header__label">language</div>
+							<div class="lang-header__image">
+								<img src="img/flags/uk.svg" alt="Flag" class="ibg">
+							</div>
+						</div>
+					</div>
+					<button data-search-open class="header__search-button _icon-search-circle">
+					</button>
+					<button data-menu-open class="icon-menu">
+						<span></span>
+					</button>
+				</div>
+				<div class="mobile-menu">
+					<div class="mobile-menu__header">
+						<div class="mobile-menu__logo">
+							<img src="img/logo-white.svg" alt="Logo" class="ibg ibg--contain">
+						</div>
+						<button data-menu-close class="mobile-menu__close _icon-cross-thin"></button>
+					</div>
+					<div data-simplebar data-simplebar-media="599.98" class="mobile-menu__body">
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Company
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">About Us</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Our Values
+									</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Advantages</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">News & Events</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Quality
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Quality Assurance</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">ESG
+									</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Sustainability</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Capabilities
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Technologies</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Engineering</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Services
+							</h4>
+							<ul class="mobile-menu__list">
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Smart Packaging</a>
+								</li>
+								<li class="mobile-menu__item">
+									<a href="#" class="mobile-menu__link text-link">Custom Solutions</a>
+								</li>
+							</ul>
+						</div>
+						<div class="mobile-menu__block">
+							<h4 class="mobile-menu__title">
+								Contact, Locations & Distributors
+							</h4>
+							<div class="mobile-menu__social social">
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#in"></use>
+									</svg>
+								</a>
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#fb"></use>
+									</svg>
+								</a>
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#yt"></use>
+									</svg>
+								</a>
+								<a href="#" class="social__item">
+									<svg>
+										<use xlink:href="img/icons.svg#x"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div id="popup-video" aria-hidden="true" class="popup popup--yt">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<div class="yt-popup">
+						<div class="yt-popup__header">
+							<h3 class="yt-popup__title">
+								Plasel Plastic Ltd.
+							</h3>
+							<button data-close type="button" class="yt-popup__close _icon-cross-thin text-link"></button>
+						</div>
+						<div data-popup-youtube-place class="yt-popup__video">
+
+						</div>
+						<div class="yt-popup__subtext">
+							A glance to Plasel Plastic Ltd
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="cart-popup" aria-hidden="true" class="popup popup--cart">
+			<div class="popup__wrapper">
+				<div class="popup__content">
+					<div class="cart-popup">
+						<h2 class="cart-popup__title">
+							Product(s) Added to Cart
+						</h2>
+						<div class="cart-popup__header">
+							<div class="cart-popup__image">
+								<img src="img/cart-popup.webp" alt="Image" class="ibg">
+							</div>
+							<h3 class="cart-popup__name-title">New Tool Pack</h3>
+						</div>
+						<div class="cart-popup__body">
+							<div class="cart-popup__item item-cart">
+								<h4 class="item-cart__info-title">
+									Product Range <span>NTP 20 120-200</span>
+								</h4>
+								<div class="item-cart__body">
+									<div class="item-cart__block item-cart__block--table">
+										<table class="item-cart__table">
+											<thead>
+												<tr>
+													<th>
+														Measurements
+													</th>
+													<th>
+														mm
+													</th>
+													<th>
+														inch
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														Internal Diameter:
+													</td>
+													<td>
+														20
+													</td>
+													<td>
+														3/4
+													</td>
+												</tr>
+												<tr>
+													<td>
+														Tool Min. Height:
+													</td>
+													<td>
+														120
+													</td>
+													<td>
+														4.72
+													</td>
+												</tr>
+												<tr>
+													<td>
+														Tool Max. Height:
+													</td>
+													<td>
+														200
+													</td>
+													<td>
+														4.87
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="item-cart__block item-cart__block--quantity">
+										<div class="item-cart__label">
+											Sets Quantity
+										</div>
+										<div class="item-cart__quantity">
+											600
+										</div>
+									</div>
+									<div class="item-cart__block item-cart__block--counter">
+										<div class="item-cart__label item-cart__label--counter">
+											Carton box(es) <span>*</span>
+										</div>
+										<div data-min="1" data-max="999" class="counter">
+											<button class="counter__btn counter__btn--decrement" type="button">-</button>
+											<input type="number" value="1">
+											<button class="counter__btn counter__btn--increment" type="button">+</button>
+										</div>
+									</div>
+									<div class="item-cart__block">
+										<div class="item-cart__label">
+											Total Quantity
+										</div>
+										<div class="item-cart__text">
+											Sets Quantity x Carton Box(es)
+										</div>
+										<div class="item-cart__quantity item-cart__quantity--color">
+											600
+										</div>
+									</div>
+									<div class="item-cart__block">
+										<div class="item-cart__label item-cart__label--colors">
+											Color <span>**</span>
+										</div>
+										<div data-one-select class="item-cart__colors">
+											<div class="item-cart__color color-cart">
+												<div class="color-cart__label">
+													Inner:
+												</div>
+												<select disabled data-op-label="Available <br> <span>Inner</span> Colors" data-class-modif="color">
+													<option value="">
+													</option>
+													<option value="1" selected data-asset='<div class="range-product__color color-product">
+											<img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+									</div>'>
+														Transparent
+													</option>
+													<option value="2" data-asset='<div style="background-color: #FFF;"
+										class="range-product__color color-product color-product--border">
+									</div>'>
+														White
+													</option>
+													<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+											</div>'>
+														Gray
+													</option>
+													<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+									</div>'>
+														Blue
+													</option>
+													<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+									</div>'>
+														Red
+													</option>
+													<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+											</div>'>
+														Black
+													</option>
+													<option value="7" data-asset='<div class="range-product__color color-product">
+												<img src="img/product/colors/rainbow.webp" alt="Image" class="color-product__image">
+										</div>'>
+														Custom
+													</option>
+												</select>
+											</div>
+											<div class="item-cart__color color-cart">
+												<div class="color-cart__label">
+													Outer:
+												</div>
+												<select disabled data-op-label="Available <br> <span>Inner</span> Colors" data-class-modif="color">
+													<option value="">
+													</option>
+													<option value="1" selected data-asset='<div class="range-product__color color-product">
+											<img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+									</div>'>
+														Transparent
+													</option>
+													<option value="2" data-asset='<div style="background-color: #FFF;"
+										class="range-product__color color-product color-product--border">
+									</div>'>
+														White
+													</option>
+													<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+											</div>'>
+														Gray
+													</option>
+													<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+									</div>'>
+														Blue
+													</option>
+													<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+									</div>'>
+														Red
+													</option>
+													<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+											</div>'>
+														Black
+													</option>
+													<option value="7" data-asset='<div class="range-product__color color-product">
+												<img src="img/product/colors/rainbow.webp" alt="Image" class="color-product__image">
+										</div>'>
+														Custom
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="cart-popup__item item-cart">
+								<h4 class="item-cart__info-title">
+									Product Range <span>NTP 20 120-200</span>
+								</h4>
+								<div class="item-cart__body">
+									<div class="item-cart__block item-cart__block--table">
+										<table class="item-cart__table">
+											<thead>
+												<tr>
+													<th>
+														Measurements
+													</th>
+													<th>
+														mm
+													</th>
+													<th>
+														inch
+													</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														Internal Diameter:
+													</td>
+													<td>
+														20
+													</td>
+													<td>
+														3/4
+													</td>
+												</tr>
+												<tr>
+													<td>
+														Tool Min. Height:
+													</td>
+													<td>
+														120
+													</td>
+													<td>
+														4.72
+													</td>
+												</tr>
+												<tr>
+													<td>
+														Tool Max. Height:
+													</td>
+													<td>
+														200
+													</td>
+													<td>
+														4.87
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+									<div class="item-cart__block item-cart__block--quantity">
+										<div class="item-cart__label">
+											Sets Quantity
+										</div>
+										<div class="item-cart__quantity">
+											600
+										</div>
+									</div>
+									<div class="item-cart__block item-cart__block--counter">
+										<div class="item-cart__label item-cart__label--counter">
+											Carton box(es) <span>*</span>
+										</div>
+										<div data-min="1" data-max="999" class="counter">
+											<button class="counter__btn counter__btn--decrement" type="button">-</button>
+											<input type="number" value="1">
+											<button class="counter__btn counter__btn--increment" type="button">+</button>
+										</div>
+									</div>
+									<div class="item-cart__block">
+										<div class="item-cart__label">
+											Total Quantity
+										</div>
+										<div class="item-cart__text">
+											Sets Quantity x Carton Box(es)
+										</div>
+										<div class="item-cart__quantity item-cart__quantity--color">
+											600
+										</div>
+									</div>
+									<div class="item-cart__block">
+										<div class="item-cart__label item-cart__label--colors">
+											Color <span>**</span>
+										</div>
+										<div data-one-select class="item-cart__colors">
+											<div class="item-cart__color color-cart">
+												<div class="color-cart__label">
+													Inner:
+												</div>
+												<select disabled data-op-label="Available <br> <span>Inner</span> Colors" data-class-modif="color">
+													<option value="">
+													</option>
+													<option value="1" selected data-asset='<div class="range-product__color color-product">
+											<img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+									</div>'>
+														Transparent
+													</option>
+													<option value="2" data-asset='<div style="background-color: #FFF;"
+										class="range-product__color color-product color-product--border">
+									</div>'>
+														White
+													</option>
+													<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+											</div>'>
+														Gray
+													</option>
+													<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+									</div>'>
+														Blue
+													</option>
+													<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+									</div>'>
+														Red
+													</option>
+													<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+											</div>'>
+														Black
+													</option>
+													<option value="7" data-asset='<div class="range-product__color color-product">
+												<img src="img/product/colors/rainbow.webp" alt="Image" class="color-product__image">
+										</div>'>
+														Custom
+													</option>
+												</select>
+											</div>
+											<div class="item-cart__color color-cart">
+												<div class="color-cart__label">
+													Outer:
+												</div>
+												<select disabled data-op-label="Available <br> <span>Inner</span> Colors" data-class-modif="color">
+													<option value="">
+													</option>
+													<option value="1" selected data-asset='<div class="range-product__color color-product">
+											<img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+									</div>'>
+														Transparent
+													</option>
+													<option value="2" data-asset='<div style="background-color: #FFF;"
+										class="range-product__color color-product color-product--border">
+									</div>'>
+														White
+													</option>
+													<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+											</div>'>
+														Gray
+													</option>
+													<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+									</div>'>
+														Blue
+													</option>
+													<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+									</div>'>
+														Red
+													</option>
+													<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+											</div>'>
+														Black
+													</option>
+													<option value="7" data-asset='<div class="range-product__color color-product">
+												<img src="img/product/colors/rainbow.webp" alt="Image" class="color-product__image">
+										</div>'>
+														Custom
+													</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cart-popup__text">
+							<div class="cart-popup__label">
+								<span>*</span> Carton Box(es) = 1 box of inners + 1 box of outers
+							</div>
+							<div class="cart-popup__label">
+								<span>**</span> When you choose "custom color" our sales representative will contact you for specification
+							</div>
+						</div>
+						<div class="cart-popup__actions actions-cart-p">
+							<button data-close type="button" class="actions-cart-p__link">
+								Cancel
+							</button>
+							<div class="actions-cart-p__buttons">
+								<a href="#" class="actions-cart-p__button">Continue Shopping</a>
+								<a href="#" class="actions-cart-p__button actions-cart-p__button--red">View Cart</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<main class="page">
+			<div class="page__section-bg section-bg">
+				<div class="section-bg__hero section-bg__hero--product">
+					<img src="img/categories/hero.webp" alt="Image" class="ibg">
+				</div>
+				<div class="section-bg__wrapper">
+					<div class="section-bg__container">
+
+						<div class="section-bg__body section-bg__body--product">
+							<div class="section-bg__tables tables">
+								<div class="tables__item">
+									<h2 class="tables__title">
+										CP
+									</h2>
+									<div data-one-select class="range-product__table range-product__table--cp">
+										<table>
+											<thead>
+												<tr>
+													<th class="filler" colspan="3"></th>
+													<th class="filler" colspan="2"></th>
+													<th colspan="3" class="milimeters gray">milimeters</th>
+													<th colspan="3" class="inches green">inches</th>
+												</tr>
+												<tr>
+													<th colspan="3">Description</th>
+													<th colspan="2">Color</th>
+													<th rowspan="2" colspan="3">
+														<div class="grid-sizes-body">
+															<div class="grid-sizes-body__item">
+																Shank
+																Diameter
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool Min. Height
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool Max. Height
+															</div>
+														</div>
+													</th>
+													<th rowspan="2" colspan="3">
+														<div class="grid-sizes-body ">
+															<div class="grid-sizes-body__item">
+																Shank
+																Diameter
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool Min. Height
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool Max. Height
+															</div>
+														</div>
+													</th>
+													<th class="relative" rowspan="2">Sets Quantity
+														<div data-tooltip class="range-product__tooltip _icon-info">
+															<div class="range-product__popup">
+																Set includes
+																an Inner part and an Outer part, separated to 2 boxes
+															</div>
+														</div>
+													</th>
+
+												</tr>
+												<tr>
+													<th>Item</th>
+													<th>Plug</th>
+													<th>Cap</th>
+													<th>Plug</th>
+													<th>Cap</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td><label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CP6
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CP6S - Short Plug</td>
+													<td style="text-align: left;">CP6-Cap-A</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--gray">
+															<div class="grid-sizes-body__item">
+																3-8
+															</div>
+															<div class="grid-sizes-body__item">
+																38
+															</div>
+															<div class="grid-sizes-body__item">
+																49
+															</div>
+														</div>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--green">
+															<div class="grid-sizes-body__item">
+																1/8 - 5/16
+															</div>
+															<div class="grid-sizes-body__item">
+																1.5
+															</div>
+															<div class="grid-sizes-body__item">
+																1.93
+															</div>
+														</div>
+													</td>
+													<td>1000</td>
+												</tr>
+												<tr>
+													<td><label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CP6
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CP6S</td>
+													<td style="text-align: left;">CP6-Cap-A</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--gray">
+															<div class="grid-sizes-body__item">
+																3-8
+															</div>
+															<div class="grid-sizes-body__item">
+																38
+															</div>
+															<div class="grid-sizes-body__item">
+																49
+															</div>
+														</div>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--green">
+															<div class="grid-sizes-body__item">
+																1/8 - 5/16
+															</div>
+															<div class="grid-sizes-body__item">
+																1.5
+															</div>
+															<div class="grid-sizes-body__item">
+																1.93
+															</div>
+														</div>
+													</td>
+													<td>1000</td>
+												</tr>
+												<tr>
+													<td><label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CP6
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CP6S - Short Plug</td>
+													<td style="text-align: left;">CP6-Cap-A</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--gray">
+															<div class="grid-sizes-body__item">
+																3-8
+															</div>
+															<div class="grid-sizes-body__item">
+																38
+															</div>
+															<div class="grid-sizes-body__item">
+																49
+															</div>
+														</div>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--green">
+															<div class="grid-sizes-body__item">
+																1/8 - 5/16
+															</div>
+															<div class="grid-sizes-body__item">
+																1.5
+															</div>
+															<div class="grid-sizes-body__item">
+																1.93
+															</div>
+														</div>
+													</td>
+													<td>1000</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tables__item">
+									<h2 class="tables__title">
+										BP BPSK TP NTP
+									</h2>
+									<div data-one-select class="range-product__table">
+										<table>
+											<thead>
+												<tr>
+													<th class="filler"></th>
+													<th colspan="2" class="filler"></th>
+													<th colspan="3" class="milimeters gray">milimeters</th>
+													<th colspan="3" class="inches green">inches</th>
+												</tr>
+												<tr>
+													<th rowspan="2">Description</th>
+													<th colspan="2">Color</th>
+													<th rowspan="2" colspan="3">
+														<div class="grid-sizes-body">
+															<div class="grid-sizes-body__item">
+																Internal<br>Diameter
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool<br>Min. Height
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool<br>Max. Height
+															</div>
+														</div>
+													</th>
+													<th rowspan="2" colspan="3">
+														<div class="grid-sizes-body">
+															<div class="grid-sizes-body__item">
+																Internal<br>Diameter
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool<br>Min. Height
+															</div>
+															<div class="grid-sizes-body__item">
+																Tool<br>Max. Height
+															</div>
+														</div>
+													</th>
+													<th class="relative" rowspan="2">Sets Quantity
+														<div data-tooltip class="range-product__tooltip _icon-info">
+															<div class="range-product__popup">
+																Set includes
+																an Inner part and an Outer part, separated to 2 boxes
+															</div>
+														</div>
+													</th>
+												</tr>
+												<tr>
+													<th>Inner</th>
+													<th>Outer</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															NTP 20 120-200
+															<input type="checkbox">
+														</label>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--gray">
+															<div class="grid-sizes-body__item">
+																20
+															</div>
+															<div class="grid-sizes-body__item">
+																80
+															</div>
+															<div class="grid-sizes-body__item">
+																120
+															</div>
+														</div>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--green">
+															<div class="grid-sizes-body__item">
+																3/4
+															</div>
+															<div class="grid-sizes-body__item">
+																3.14
+															</div>
+															<div class="grid-sizes-body__item">
+																4.72
+															</div>
+														</div>
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															NTP 20 120-200
+															<input type="checkbox">
+														</label>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--gray">
+															<div class="grid-sizes-body__item">
+																20
+															</div>
+															<div class="grid-sizes-body__item">
+																80
+															</div>
+															<div class="grid-sizes-body__item">
+																120
+															</div>
+														</div>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--green">
+															<div class="grid-sizes-body__item">
+																3/4
+															</div>
+															<div class="grid-sizes-body__item">
+																3.14
+															</div>
+															<div class="grid-sizes-body__item">
+																4.72
+															</div>
+														</div>
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															NTP 20 120-200
+															<input type="checkbox">
+														</label>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--gray">
+															<div class="grid-sizes-body__item">
+																20
+															</div>
+															<div class="grid-sizes-body__item">
+																80
+															</div>
+															<div class="grid-sizes-body__item">
+																120
+															</div>
+														</div>
+													</td>
+													<td colspan="3">
+														<div class="grid-sizes-body grid-sizes-body--green">
+															<div class="grid-sizes-body__item">
+																3/4
+															</div>
+															<div class="grid-sizes-body__item">
+																3.14
+															</div>
+															<div class="grid-sizes-body__item">
+																4.72
+															</div>
+														</div>
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tables__item">
+									<h2 class="tables__title">
+										CPC MCP Regular Cap milimeters
+									</h2>
+									<div data-one-select class="range-product__table">
+										<table>
+											<thead>
+												<tr>
+													<th colspan="4" class="filler"></th>
+													<th colspan="2" class="inches gray">milimeters</th>
+												</tr>
+												<tr>
+													<th style="text-align: left; vertical-align: bottom;" rowspan="2">Plug</th>
+													<th style="text-align: left;" rowspan="2">Regular Cap <br> Name</th>
+													<th colspan="2">Color</th>
+													<th rowspan="2">
+														<div style="display: block; min-width: 200px;">Shank<br>
+															Diameter</div>
+													</th>
+													<th rowspan="2">
+														<div style="display: block; min-width: 200px;">Tool Max. <br> Length</div>
+													</th>
+													<th rowspan="2" class="relative">Sets Quantity
+														<div data-tooltip class="range-product__tooltip _icon-info">
+															<div class="range-product__popup">
+																Set includes
+																an Inner part and an Outer part, separated to 2 boxes
+															</div>
+														</div>
+													</th>
+												</tr>
+												<tr>
+													<th>Plug</th>
+													<th>Cap</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CPC6D2.5 - Plug
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CPF6-Cap-B</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td class="gray">
+														2.5
+													</td>
+													<td class="gray">
+														40
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CPC6D2.5 - Plug
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CPF6-Cap-B</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td class="gray">
+														2.5
+													</td>
+													<td class="gray">
+														40
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CPC6D2.5 - Plug
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CPF6-Cap-B</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td class="gray">
+														2.5
+													</td>
+													<td class="gray">
+														40
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tables__item">
+									<h2 class="tables__title">
+										CPC MCP Regular Cap inch
+									</h2>
+									<div data-one-select class="range-product__table">
+										<table>
+											<thead>
+												<tr>
+													<th colspan="4" class="filler"></th>
+													<th colspan="2" class="inches green">inches</th>
+												</tr>
+												<tr>
+													<th style="text-align: left; vertical-align: bottom;" rowspan="2">Plug</th>
+													<th style="text-align: left;" rowspan="2">Regular Cap <br> Name</th>
+													<th colspan="2">Color</th>
+													<th rowspan="2">
+														<div style="display: block; min-width: 200px;">Shank<br>
+															Diameter</div>
+													</th>
+													<th rowspan="2">
+														<div style="display: block; min-width: 200px;">Tool Max. <br> Length</div>
+													</th>
+													<th rowspan="2" class="relative">Sets Quantity
+														<div data-tooltip class="range-product__tooltip _icon-info">
+															<div class="range-product__popup">
+																Set includes
+																an Inner part and an Outer part, separated to 2 boxes
+															</div>
+														</div>
+													</th>
+												</tr>
+												<tr>
+													<th>Plug</th>
+													<th>Cap</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CPC6D2.5 - Plug
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CPF6-Cap-B</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td class="green">
+														1/8
+													</td>
+													<td class="green">
+														1.97
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CPC6D2.5 - Plug
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CPF6-Cap-B</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td class="green">
+														1/8
+													</td>
+													<td class="green">
+														1.97
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<label class="range-product__checkbox">
+															<div class="range-product__icon _icon-check-table"></div>
+															CPC6D2.5 - Plug
+															<input type="checkbox">
+														</label>
+													</td>
+													<td style="text-align: left;">CPF6-Cap-B</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td>
+														<select data-op-label="Available <br> <span>Inner</span> Colors" data-popup-mob data-class-modif="color" data-pseudo-label="select color">
+															<option value="" selected>
+															</option>
+															<option value="1" data-asset='<div class="range-product__color color-product">
+  <img src="img/product/colors/transparent.svg" alt="Image" class="color-product__image">
+</div>'>
+																Transparent
+															</option>
+															<option value="2" data-asset='<div style="background-color: #FFF;"
+class="range-product__color color-product color-product--border">
+</div>'>
+																White
+															</option>
+															<option value="3" data-asset='<div style="background-color: #bfbfbf;" class="range-product__color color-product">
+  </div>'>
+																Gray
+															</option>
+															<option value="4" data-asset='<div style="background-color: #DD3D3D;" class="range-product__color color-product">
+</div>'>
+																Blue
+															</option>
+															<option value="5" data-asset='<div style="background-color: #219CBB;" class="range-product__color color-product">
+</div>'>
+																Red
+															</option>
+															<option value="6" data-asset='<div style="background-color: #000;" class="range-product__color color-product">
+  </div>'>
+																Black
+															</option>
+															<option value="7" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/rainbow.svg" alt="Image" class="color-product__image">
+</div>'>
+																Custom
+															</option>
+															<option value="8" data-asset='<div class="range-product__color color-product">
+    <img src="img/product/colors/recycle.svg" alt="Image" class="color-product__image">
+</div>'>
+																Recycle
+															</option>
+														</select>
+													</td>
+													<td class="green">
+														1/8
+													</td>
+													<td class="green">
+														1.97
+													</td>
+													<td>
+														500
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+								<div class="tables__item">
+									<h2 class="tables__title">
+										TO BE CONTINUE...
+									</h2>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			<div class="footer__wrapper">
+				<div class="footer__container">
+					<!--Зробити дівом якщо посилання не додали-->
+					<a href="#" class="footer__label-image">
+						<img src="img/footer/ecovadis.webp" alt="Image" class="ibg ibg--contain">
+					</a>
+					<div class="footer__body">
+						<a href="#" data-da=".footer__adresses, 767.98, 1" class="footer__logo">
+							<img src="img/logo-white.svg" alt="Logo" class="ibg ibg--contain">
+						</a>
+						<div class="footer__menu">
+							<div class="footer__block">
+								<h4 class="footer__title">Company</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											About Us
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Our Values
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Advantages
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											News & Events
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Quality</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Quality Assurance
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											ESG
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Sustainability
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Capabilities</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Technologies
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Engineering
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Services</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Smart Packaging
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Custom Solution
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="footer__block">
+								<h4 class="footer__title">Contact</h4>
+								<ul class="footer__list">
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Locations & Distributors
+										</a>
+									</li>
+									<li class="footer__item">
+										<a href="#" class="footer__link text-link">
+											Contact Us
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="footer__content">
+						<div class="footer__adresses">
+							<div class="footer__adress-block">
+								<div class="footer__address-item">
+									<a href="tel:97249089820" class="footer__link text-link">+972-4-908-9820
+									</a>
+								</div>
+								<div class="footer__address-item">
+									<a href="mailto:info@plasel.com" class="footer__link text-link">info@plasel.com
+									</a>
+								</div>
+								<div class="footer__address-item">
+									<a href="#" class="footer__link text-link">Lavon Industrial Park</a>
+								</div>
+							</div>
+							<div class="footer__adress-block footer__adress-block--grow">
+								<div class="footer__address-item">
+									General: <a href="mailto:orders@plasel.com" class="footer__link text-link">orders@plasel.com
+									</a>
+								</div>
+								<div class="footer__address-item">
+									Job Applications:
+									<a href="mailto:plasel-jobs@plasel.com" class="footer__link text-link">plasel-jobs@plasel.com
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="footer__col footer__col--social">
+							<div class="footer__row">
+								<div data-da=".footer__col--social, 767.98, first" class="footer__social social-footer">
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										Facebook
+									</a>
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										X (twitter)
+									</a>
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										LinkedIn
+									</a>
+									<a href="#" target="_blank" class="social-footer__link text-link">
+										Youtube
+									</a>
+								</div>
+								<div class="footer__terms">
+									<a href="#" target="_blank" class="footer__terms-link text-link">
+										Terms of Use
+									</a>
+									<a href="#" target="_blank" class="footer__terms-link text-link">
+										Privacy Policy
+									</a>
+								</div>
+							</div>
+							<button data-go-back data-da=".footer__row, 767.98, first" class="footer__up _icon-arrow-up"><span>back to
+									top</span></button>
+						</div>
+					</div>
+					<div class="footer__copy">
+						All Rights Reserves to Plasel Inc. 2024©
+					</div>
+					<div class="footer__credits">
+						<a href="#" target="_blank">Design by: The Rightman Studio</a>
+						<a href="#" target="_blank">Developed by: 72dpi</a>
+					</div>
+				</div>
+			</div>
+			<div data-count="18" class="footer__decor">
+				<div class="footer__decor-item"></div>
+			</div>
+		</footer>
+	</div>
+	<style>
+		.section-bg__tables {
+			padding-top: 3rem;
+		}
+
+		.tables__title {
+			font-size: 24px;
+			font-weight: 700;
+			margin-bottom: 2rem;
+		}
+
+		.tables__item {
+			margin-bottom: 3rem;
+		}
+
+		.tables__table--cp {}
+	</style>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClqFtYyV6tblkFr8PUcCrUMTyVRN8byu8&_v=20240719151454" async defer></script>
+	<script src="js/app.min.js?_v=20241129104800"></script>
+</body>
+
+</html>

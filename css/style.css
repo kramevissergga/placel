@@ -2888,8 +2888,8 @@ body::after {
 .range-product__table td,
 .range-product__table th {
   text-align: center;
-  width: -webkit-max-content;
-  width: max-content;
+  width: -webkit-max-content!important;
+  width: max-content!important;
   font-size: 1rem;
   line-height: 1.62;
   font-weight: 400
@@ -2918,9 +2918,11 @@ body::after {
   text-wrap: nowrap;
   padding: 1.3125rem .8125rem
 }
+.range-product__table td.gray,
 .range-product__table td:has(.grid-sizes-body--gray) {
   background-color: #dbdfe1
 }
+.range-product__table td.green,
 .range-product__table td:has(.grid-sizes-body--green) {
   background-color: #dfe4e2
 }
@@ -2954,9 +2956,11 @@ body::after {
 .range-product__table tr:nth-child(even) td {
   background-color: #fff
 }
+.range-product__table tr:nth-child(even) td.gray,
 .range-product__table tr:nth-child(even) td:has(.grid-sizes-body--gray) {
   background-color: #eceeef
 }
+.range-product__table tr:nth-child(even) td.green,
 .range-product__table tr:nth-child(even) td:has(.grid-sizes-body--green) {
   background-color: #f1f4f0
 }
