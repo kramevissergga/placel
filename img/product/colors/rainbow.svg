@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 42.13 42.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: url(#New_Gradient_Swatch_1);
+      }
+    </style>
+    <linearGradient id="New_Gradient_Swatch_1" data-name="New Gradient Swatch 1" x1="21.07" y1="41.13" x2="21.07" y2="1" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#009d54"/>
+      <stop offset=".25" stop-color="#fbc82c"/>
+      <stop offset=".45" stop-color="#ea1847"/>
+      <stop offset=".64" stop-color="#c4188d"/>
+      <stop offset=".8" stop-color="#4c2d8e"/>
+      <stop offset=".85" stop-color="#36318e"/>
+      <stop offset="1" stop-color="#01a4dc"/>
+    </linearGradient>
+  </defs>
+  <circle class="cls-2" cx="21.07" cy="21.07" r="20.07"/>
+  <circle class="cls-1" cx="21.07" cy="21.07" r="20.07"/>
+</svg>
