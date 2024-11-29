@@ -3799,7 +3799,7 @@
             const thumbSplide = new Splide(thumbnailSlider, {
                 isNavigation: true,
                 perPage: 5,
-                gap: "1.375rem",
+                gap: "1rem",
                 pagination: false,
                 arrows: false
             }).mount();
