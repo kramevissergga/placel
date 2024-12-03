@@ -2268,16 +2268,20 @@ body::after {
   column-gap: 2.25rem;
   row-gap: 2.5rem
 }
-.text-sm>h2,
-.text-sm>h3 {
+.text-sm>h2 {
   font-size: 1.75rem;
   color: #455a64;
   font-weight: 900;
   line-height: 1.28
 }
-.text-sm>h2:not(:last-child),
-.text-sm>h3:not(:last-child) {
+.text-sm>h2:not(:last-child) {
   margin-bottom: .1875rem
+}
+.text-sm>h3 {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #000;
+  line-height: 1.8
 }
 .text-sm p {
   font-size: 1.125rem;
@@ -2648,15 +2652,9 @@ body::after {
   margin-top: .8125rem;
   background-color: var(--page-color,#455a64)
 }
-.esg__text-item h3 {
-  font-size: 1.375rem;
-  font-weight: 700;
-  color: #000;
-  line-height: 1.8
-}
 .esg__text-item p {
   font-size: 1rem;
-  line-height: 1.75
+  line-height: 1.6
 }
 .item-assurance {
   padding: 3.5625rem 1.5rem .9375rem;
@@ -5369,10 +5367,16 @@ body::after {
   .checkbox-category__label {
     font-size: .625rem
   }
-  .text-sm>h2,
-  .text-sm>h3 {
+  .text-sm>h2 {
     font-size: 1.375rem;
     line-height: 1.2
+  }
+  .text-sm>h3 {
+    font-size: 1.125rem;
+    line-height: 1.55
+  }
+  .text-sm>h3:not(:last-child) {
+    margin-bottom: .625rem
   }
   .text-sm p {
     font-size: 1rem;
@@ -5605,7 +5609,7 @@ body::after {
     line-height: 1.15
   }
   .esg__text h2:not(:last-child) {
-    margin-bottom: 0
+    margin-bottom: .8125rem
   }
   .esg__text p:not(:last-child) {
     margin-bottom: .6875rem
@@ -5622,12 +5626,8 @@ body::after {
     height: 5.5rem;
     margin-top: 0
   }
-  .esg__text-item h3 {
-    font-size: 1.125rem;
-    line-height: 1.55
-  }
-  .esg__text-item h3:not(:last-child) {
-    margin-bottom: .625rem
+  .esg__text-item p {
+    line-height: 1.75
   }
   .assurance__item {
     padding: 1.25rem
