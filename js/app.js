@@ -3777,6 +3777,42 @@
                 }
             }).mount();
         }));
+        const newsSliders = document.querySelectorAll(".news-section__slider");
+        if (newsSliders.length) newsSliders.forEach((newsSlider => {
+            new Splide(newsSlider, {
+                arrows: false,
+                pagination: false,
+                destroy: true,
+                perPage: 2,
+                gap: "1.9375rem",
+                padding: {
+                    right: "16rem"
+                },
+                breakpoints: {
+                    1349.98: {
+                        destroy: false
+                    },
+                    991.98: {
+                        padding: {
+                            right: "5rem"
+                        }
+                    },
+                    799.98: {
+                        perPage: 1,
+                        padding: {
+                            right: "15rem"
+                        }
+                    },
+                    569.98: {
+                        gap: "0.625rem",
+                        padding: {
+                            right: "1.875rem",
+                            left: "1.875rem"
+                        }
+                    }
+                }
+            }).mount();
+        }));
     }));
     const productSliders = document.querySelectorAll(".product__sliders");
     if (productSliders.length) productSliders.forEach((sliderWrapper => {
