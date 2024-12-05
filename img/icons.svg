@@ -60,4 +60,25 @@
 			</clipPath>
 		</defs>
 	</symbol>
+  <symbol fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" id="mail">
+    <g clip-path="url(#clip0_201_2247)">
+      <mask id="mask0_201_2247" maskUnits="userSpaceOnUse" x="0" y="0" width="20" height="20">
+        <path d="M20 0H0V20H20V0Z" fill="white"></path>
+      </mask>
+      <g mask="url(#mask0_201_2247)">
+        <path d="M10 20C15.5087 20 20 15.5335 20 10C20 4.4665 15.5087 0 10 0C4.49132 0 0 4.4665 0 10C0 15.5335 4.4665 20 10 20Z" fill="#DC3D3D"></path>
+      </g>
+    </g>
+    <g clip-path="url(#clip1_201_2247)">
+      <path d="M15.4166 14.1034H4.56007C4.41245 14.1034 4.29272 13.9742 4.29272 13.8148V5.71298C4.29272 5.55363 4.41245 5.42439 4.56007 5.42439H15.4178C15.5654 5.42439 15.6851 5.55363 15.6851 5.71298V13.8148C15.6851 13.9742 15.5654 14.1034 15.4178 14.1034H15.4166ZM14.6773 6.00032H5.29934L9.98833 10.2376L14.6773 6.00032ZM7.79494 9.00667L4.82625 6.32529V13.0143L7.79494 9.00793V9.00667ZM15.1504 13.013V6.32529L12.1817 9.00793L15.1504 13.0143V13.013ZM5.12614 13.5275H14.8505L11.7737 9.37556L10.1615 10.8323C10.0639 10.9227 9.91859 10.9264 9.81747 10.8348L8.20294 9.37682L5.12614 13.5275Z" fill="white"></path>
+    </g>
+    <defs>
+      <clipPath id="clip0_201_2247">
+        <rect width="20" height="20" fill="white"></rect>
+      </clipPath>
+      <clipPath id="clip1_201_2247">
+        <rect width="11.3912" height="8.67902" fill="white" transform="translate(4.29272 5.42439)"></rect>
+      </clipPath>
+    </defs>
+  </symbol>
 </svg>
