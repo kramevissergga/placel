@@ -4123,6 +4123,76 @@ body::after {
 .locations-contacts__text a {
   color: #dd3d3d
 }
+.page__search-result {
+  margin-bottom: 3.5625rem
+}
+.search-result__hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 15.5625rem;
+  background-color: #455a64
+}
+.search-result__hero:not(:last-child) {
+  margin-bottom: 3.1875rem
+}
+.search-result__title {
+  line-height: 1.28;
+  color: #fff;
+  font-weight: 900;
+  padding: 1.25rem;
+  text-align: center
+}
+.search-result__container {
+  max-width: 82.9375rem
+}
+.search-result__body:not(:last-child) {
+  margin-bottom: 3.4375rem
+}
+.search-result__block:not(:last-child) {
+  margin-bottom: 1.25rem
+}
+.search-result__header {
+  padding: .625rem 1.0625rem;
+  font-size: 1.25rem;
+  color: #fff;
+  border-radius: 0 .9375rem;
+  background-color: #455a64
+}
+.search-result__header:not(:last-child) {
+  margin-bottom: 1.1875rem
+}
+.search-result__item:not(:last-child) {
+  margin-bottom: 1.8125rem
+}
+.item-result {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  padding: 1.5rem 3.125rem 1.5rem 1.875rem;
+  border: .0625rem solid #455a64;
+  border-radius: 1.875rem 0
+}
+.item-result__image-link {
+  aspect-ratio: 1/1;
+  border-radius: 1.25rem 0;
+  overflow: hidden
+}
+.item-result__image-link img {
+  will-change: transform;
+  transition: -webkit-transform .3s;
+  transition: transform .3s;
+  transition: transform .3s,-webkit-transform .3s
+}
+.item-result__body h2 {
+  line-height: 1.16
+}
+.item-result__body h2:not(:last-child) {
+  margin-bottom: 0
+}
+.item-result__body span {
+  background-color: #ffc100
+}
 .thanks {
   display: flex;
   flex-direction: column;
@@ -4984,6 +5054,9 @@ body::after {
   .locations-contacts__image {
     box-shadow: .1875rem .1875rem .3125rem rgba(0,0,0,.5)
   }
+  .item-result__image-link {
+    flex: 0 0 11.6875rem
+  }
 }
 @media (min-width:47.99875em)and (min-width:89.3125em) {
   .sustainability__cols {
@@ -5276,6 +5349,9 @@ body::after {
     -webkit-column-gap: 2.75rem;
     -moz-column-gap: 2.75rem;
     column-gap: 2.75rem
+  }
+  .search-result__title {
+    font-size: 2.875rem
   }
 }
 @media (min-width:112.49875em) {
@@ -6950,6 +7026,59 @@ body::after {
     font-size: 1rem;
     line-height: 1.75
   }
+  .page__search-result {
+    margin-bottom: 3.875rem
+  }
+  .search-result__hero {
+    min-height: 10.625rem
+  }
+  .search-result__hero:not(:last-child) {
+    margin-bottom: 1.4375rem
+  }
+  .search-result__title {
+    max-width: 15.625rem
+  }
+  .search-result__body:not(:last-child) {
+    margin-bottom: 5.0625rem
+  }
+  .search-result__header span {
+    font-weight: 700
+  }
+  .search-result__header {
+    padding: .3125rem 1.25rem;
+    font-size: 1rem;
+    line-height: 1.75;
+    border-radius: 0 .9375rem 0 0
+  }
+  .search-result__header:not(:last-child) {
+    margin-bottom: 1.4375rem
+  }
+  .search-result__item:not(:last-child) {
+    margin-bottom: 1.25rem
+  }
+  .item-result {
+    flex-direction: column;
+    align-items: stretch;
+    gap: .8125rem;
+    border-radius: 1.25rem 0;
+    padding: 1.1875rem 1.25rem 1rem
+  }
+  .item-result__image-link {
+    aspect-ratio: 295/133
+  }
+  .item-result__body {
+    font-size: .875rem
+  }
+  .item-result__body p {
+    font-size: inherit;
+    line-height: 1.42
+  }
+  .item-result__body h2:not(:last-child) {
+    margin-bottom: .625rem
+  }
+  .item-result__body h2 {
+    font-size: 1.5rem
+  }
   .thanks__title {
     line-height: 1.28;
     font-size: 1.75rem
@@ -7366,6 +7495,9 @@ body::after {
   .blog__header {
     gap: 1rem
   }
+  .search-result__title {
+    font-size: 1.75rem
+  }
 }
 @media (max-width:23.43625em) {
   .header__container {
@@ -7539,6 +7671,16 @@ body::after {
   @supports not (gap:clamp(1rem ,-0.7122272296rem + 7.3055028463vw ,5.8125rem)) {
     .blog__header {
       gap: calc(1rem + 4.8125*(100vw - 23.4375rem)/ 65.875)
+    }
+  }
+  @supports (font-size:clamp(1.75rem ,1.3497390892rem + 1.7077798861vw ,2.875rem)) {
+    .search-result__title {
+      font-size: clamp(1.75rem ,1.3497390892rem + 1.7077798861vw ,2.875rem)
+    }
+  }
+  @supports not (font-size:clamp(1.75rem ,1.3497390892rem + 1.7077798861vw ,2.875rem)) {
+    .search-result__title {
+      font-size: calc(1.75rem + 1.125*(100vw - 23.4375rem)/ 65.875)
     }
   }
 }
@@ -7901,6 +8043,10 @@ body::after {
     background-color: #fff;
     border-color: var(--bg-color,#dd3d3d);
     color: var(--bg-color,#dd3d3d)
+  }
+  .item-result__image-link:hover img {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05)
   }
   .thanks__back:hover {
     color: #dd3d3d
