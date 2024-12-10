@@ -1069,7 +1069,7 @@ body::after {
 }
 .section-bg__container--notif {
   max-width: 70.75rem;
-  margin-top: 0;
+  margin-top: 0!important;
   position: relative;
   z-index: 2
 }
