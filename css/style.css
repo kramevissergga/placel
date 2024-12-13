@@ -193,6 +193,11 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance: textfield
 }
+img:not([src]),
+img[src=""],
+img[src=true] {
+  display: none
+}
 .lock body {
   overflow: hidden;
   touch-action: none;
@@ -2366,20 +2371,24 @@ body::after {
 .text-sm p:not(:last-child) {
   margin-bottom: .375rem
 }
-.text-sm>img {
+.text-sm>img,
+.text-sm>p>img {
   border-radius: 1.25rem 0 1.25rem 0;
   width: 100%;
   max-width: 48.3125rem;
   -o-object-fit: cover;
   object-fit: cover
 }
-.text-sm>img:not(:first-child) {
+.text-sm>img:not(:first-child),
+.text-sm>p>img:not(:first-child) {
   margin-top: .5625rem
 }
-.text-sm>img:not(:last-child) {
+.text-sm>img:not(:last-child),
+.text-sm>p>img:not(:last-child) {
   margin-bottom: 3.125rem
 }
-.text-sm>img:has(+.desc) {
+.text-sm>img:has(+.desc),
+.text-sm>p>img:has(+.desc) {
   margin-bottom: 0
 }
 .text-sm .desc {
@@ -2746,7 +2755,8 @@ body::after {
 .sustainability__text P:not(:last-child) {
   margin-bottom: .625rem
 }
-.sustainability__text img:not(:last-child) {
+.sustainability__text img:not(:last-child),
+.sustainability__text p:has(>img):not(:last-child) {
   margin-bottom: 1.1875rem
 }
 .sustainability__icon {
@@ -2771,7 +2781,8 @@ body::after {
 .esg__text p:not(:last-child) {
   margin-bottom: 1.625rem
 }
-.esg__text img:not(:last-child) {
+.esg__text img:not(:last-child),
+.esg__text p:has(>img):not(:last-child) {
   margin-bottom: 1.5625rem
 }
 .esg__col {
@@ -3724,7 +3735,8 @@ body::after {
 .engineering__text ul li:not(:last-child) {
   margin-bottom: .3125rem
 }
-.engineering__text img:not(:last-child) {
+.engineering__text img:not(:last-child),
+.engineering__text p:has(>img):not(:last-child) {
   margin-bottom: 1.5rem
 }
 .engineering__bg-text {
@@ -6324,10 +6336,12 @@ body::after {
     font-size: 1rem;
     line-height: 1.75
   }
-  .text-sm>img:not(:first-child) {
+  .text-sm>img:not(:first-child),
+  .text-sm>p>img:not(:first-child) {
     margin-top: .4375rem
   }
-  .text-sm>img:not(:last-child) {
+  .text-sm>img:not(:last-child),
+  .text-sm>p>img:not(:last-child) {
     margin-bottom: 1.6875rem
   }
   .text-sm .desc:not(:last-child) {
@@ -6843,7 +6857,8 @@ body::after {
   .engineering__text ul li:not(:last-child) {
     margin-bottom: 0
   }
-  .engineering__text img:not(:last-child) {
+  .engineering__text img:not(:last-child),
+  .engineering__text p:has(>img):not(:last-child) {
     margin-bottom: 1.375rem
   }
   .engineering__bg-text h2 {
