@@ -486,14 +486,14 @@ body::after {
   pointer-events: none;
   display: flex
 }
-.popup--yt {
-  padding-top: 11.25rem
-}
 .popup_show {
   z-index: 52;
   visibility: visible;
   overflow-y: scroll;
   pointer-events: auto
+}
+.popup_show.popup--yt {
+  overflow-y: hidden
 }
 .popup_show .popup__content {
   visibility: visible;
@@ -509,6 +509,10 @@ body::after {
   width: 100%;
   justify-content: start
 }
+.popup--yt .popup__wrapper {
+  justify-content: center;
+  max-height: 100dvh
+}
 .popup__content {
   visibility: hidden;
   -webkit-transform: scale(0);
@@ -522,7 +526,7 @@ body::after {
   max-width: 900px
 }
 .popup--yt .popup__content {
-  max-width: 75rem;
+  max-width: 111dvh;
   border-radius: 0;
   background-color: rgba(0,0,0,0)
 }
@@ -563,7 +567,8 @@ body::after {
   font-weight: 900
 }
 .yt-popup__video {
-  aspect-ratio: 1200/675
+  aspect-ratio: 1200/675;
+  max-height: 100%
 }
 .yt-popup__video iframe {
   width: 100%;
@@ -2801,7 +2806,8 @@ body::after {
   background-color: var(--page-color,#455a64)
 }
 .esg__text-item p {
-  line-height: 1.6
+  line-height: 1.6;
+  font-weight: 400
 }
 .item-assurance {
   padding: 3.5625rem 1.5rem .9375rem;
